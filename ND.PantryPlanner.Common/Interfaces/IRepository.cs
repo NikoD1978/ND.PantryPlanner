@@ -5,7 +5,6 @@ namespace ND.PantryPlanner.Common.Interfaces
   /// <summary>
   /// Interface for all data acquisition repositories in this project
   /// </summary>
-  /// <typeparam name="TEntity"></typeparam>
   public interface IRepository<TEntity>
   {
     /// <summary>
@@ -17,5 +16,10 @@ namespace ND.PantryPlanner.Common.Interfaces
     /// Gets a single result by its ID
     /// </summary>
     TEntity? Get(int id);
+
+    /// <summary>
+    /// Adds a new object to the repository
+    /// </summary>
+    public void Add(TEntity entity);
   }
 }
