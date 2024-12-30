@@ -22,7 +22,7 @@ namespace ND.PantryPlanner.DataLayer.Initialization
 
       if (!Directory.Exists(directory))
       {
-        Directory.CreateDirectory(directory);
+        Directory.CreateDirectory(path: directory);
       }
 
       if (!File.Exists(_databasePath))
