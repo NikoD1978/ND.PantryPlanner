@@ -24,7 +24,7 @@ namespace ND.PantryPlanner.Common.BaseClasses
     /// <summary>
     /// Is raised when the property of a bound UI element changes its value
     /// </summary>
-    public virtual void RaisePropertyChanged(string property)
+    public virtual void OnPropertyChanged(string property)
     {
       this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
     }
