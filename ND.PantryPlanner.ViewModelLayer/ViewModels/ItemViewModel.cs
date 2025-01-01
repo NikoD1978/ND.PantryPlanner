@@ -4,7 +4,7 @@ using ND.PantryPlanner.Common.BaseClasses;
 using ND.PantryPlanner.Common.Interfaces;
 using ND.PantryPlanner.ModelLayer.Models;
 
-namespace ND.PantryPlanner.ViewModelLayer.ViewModelClasses
+namespace ND.PantryPlanner.ViewModelLayer.ViewModels
 {
   /// <summary>
   /// View model for the Item model

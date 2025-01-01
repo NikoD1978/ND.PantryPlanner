@@ -5,6 +5,9 @@ namespace ND.PantryPlanner.Common.BaseClasses
 {
   /// <summary>
   /// Common base class for all base classes in the project
+  /// 
+  /// Could be made with much less code by using the CommunityToolkit.Mvvm NuGet package,
+  /// but in this project I wanted to implement these things myself without the help of toolkits.
   /// </summary>
   public abstract class CommonBase : INotifyPropertyChanged
   {
