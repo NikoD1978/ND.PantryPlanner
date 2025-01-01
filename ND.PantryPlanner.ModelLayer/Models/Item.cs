@@ -1,12 +1,12 @@
 ﻿using ND.PantryPlanner.Common.BaseClasses;
-using ND.PantryPlanner.EntityLayer.Enums;
+using ND.PantryPlanner.ModelLayer.Enums;
 
-namespace ND.PantryPlanner.EntityLayer.EntityClasses
+namespace ND.PantryPlanner.ModelLayer.Models
 {
   /// <summary>
   /// Represents an item in the pantry
   /// </summary>
-  public class Item : EntityBase
+  public class Item : ModelBase
   {
     #region Private Fields
     private int _id;

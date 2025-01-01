@@ -1,4 +1,4 @@
-﻿namespace ND.PantryPlanner.MAUI
+﻿namespace ND.PantryPlanner.MAUI.Views
 {
     public partial class MainPage : ContentPage
     {

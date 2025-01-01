@@ -1,9 +1,9 @@
 ﻿namespace ND.PantryPlanner.Common.BaseClasses
 {
   /// <summary>
-  /// Base class for all entities
+  /// Base class for all models in the project
   /// </summary>
-  public class EntityBase : CommonBase
+  public class ModelBase : CommonBase
   {
   }
 }

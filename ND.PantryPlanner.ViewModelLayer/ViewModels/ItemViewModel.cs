@@ -2,12 +2,12 @@
 
 using ND.PantryPlanner.Common.BaseClasses;
 using ND.PantryPlanner.Common.Interfaces;
-using ND.PantryPlanner.EntityLayer.EntityClasses;
+using ND.PantryPlanner.ModelLayer.Models;
 
 namespace ND.PantryPlanner.ViewModelLayer.ViewModelClasses
 {
   /// <summary>
-  /// View model for the Item entity
+  /// View model for the Item model
   /// </summary>
   public class ItemViewModel : ViewModelBase
   {

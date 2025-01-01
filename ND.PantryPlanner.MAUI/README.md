@@ -1,4 +1,7 @@
 # ND.PantryPlanner
+## Disclaimer
+This documentation is a work in progress, as is this project, and may not be complete. Also, GitHub Copilot was used to generate some of the content in this file. Copilot also served as code review partner for this project.
+
 ## Description
 ND.PantryPlanner is a .NET MAUI application designed to help users manage their pantry inventory efficiently. The app allows users to track the items in their pantry, set reminders for expiration dates, and generate shopping lists based on their inventory needs. With an intuitive interface and seamless cross-platform support, ND.PantryPlanner aims to simplify pantry management and reduce food waste.
 

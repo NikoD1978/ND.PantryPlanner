@@ -1,4 +1,4 @@
-﻿namespace ND.PantryPlanner.EntityLayer.Enums
+﻿namespace ND.PantryPlanner.ModelLayer.Enums
 {
   /// <summary>
   /// Enum for the location of an item

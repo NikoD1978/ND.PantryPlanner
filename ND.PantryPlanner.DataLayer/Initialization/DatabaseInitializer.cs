@@ -12,7 +12,7 @@ namespace ND.PantryPlanner.DataLayer.Initialization
     public DatabaseInitializer()
     {
       var baseDirectory = AppContext.BaseDirectory;
-      var subFolder = Path.Combine(baseDirectory, ".local", "share");
+      var subFolder = Path.Combine(baseDirectory, ".local", "data");
       _databasePath = Path.Combine(subFolder, Settings.DatabaseFileName);
     }
 
@@ -22,7 +22,7 @@ namespace ND.PantryPlanner.DataLayer.Initialization
 
       if (!Directory.Exists(directory))
       {
-        Directory.CreateDirectory(path: directory);
+        Directory.CreateDirectory(path: directory!);
       }
 
       if (!File.Exists(_databasePath))

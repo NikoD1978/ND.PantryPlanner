@@ -7,11 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ND.PantryPlanner.MAUI", "ND
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ND.PantryPlanner.DataLayer", "ND.PantryPlanner.DataLayer\ND.PantryPlanner.DataLayer.csproj", "{B5A33F0E-6778-401B-B2D4-A3061BBCEC30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ND.PantryPlanner.EntityLayer", "ND.PantryPlanner.EntityLayer\ND.PantryPlanner.EntityLayer.csproj", "{75A44637-81E0-4AD9-983C-4E57CC11B5D2}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ND.PantryPlanner.ViewModelLayer", "ND.PantryPlanner.ViewModelLayer\ND.PantryPlanner.ViewModelLayer.csproj", "{6B2D60C3-0B40-4C8A-8591-F51E5D128A66}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ND.PantryPlanner.Common", "ND.PantryPlanner.Common\ND.PantryPlanner.Common.csproj", "{533C5B5B-24BF-446F-925C-435762892110}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ND.PantryPlanner.ModelLayer", "ND.PantryPlanner.ModelLayer\ND.PantryPlanner.ModelLayer.csproj", "{379078D3-96F9-43C3-B104-18622B7A40EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,6 @@ Global
 		{B5A33F0E-6778-401B-B2D4-A3061BBCEC30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5A33F0E-6778-401B-B2D4-A3061BBCEC30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5A33F0E-6778-401B-B2D4-A3061BBCEC30}.Release|Any CPU.Build.0 = Release|Any CPU
-		{75A44637-81E0-4AD9-983C-4E57CC11B5D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{75A44637-81E0-4AD9-983C-4E57CC11B5D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{75A44637-81E0-4AD9-983C-4E57CC11B5D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{75A44637-81E0-4AD9-983C-4E57CC11B5D2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6B2D60C3-0B40-4C8A-8591-F51E5D128A66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6B2D60C3-0B40-4C8A-8591-F51E5D128A66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B2D60C3-0B40-4C8A-8591-F51E5D128A66}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,6 +37,10 @@ Global
 		{533C5B5B-24BF-446F-925C-435762892110}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{533C5B5B-24BF-446F-925C-435762892110}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{533C5B5B-24BF-446F-925C-435762892110}.Release|Any CPU.Build.0 = Release|Any CPU
+		{379078D3-96F9-43C3-B104-18622B7A40EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{379078D3-96F9-43C3-B104-18622B7A40EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{379078D3-96F9-43C3-B104-18622B7A40EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{379078D3-96F9-43C3-B104-18622B7A40EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

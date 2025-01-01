@@ -66,7 +66,7 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\ND.PantryPlanner.Common\ND.PantryPlanner.Common.csproj" />
 	  <ProjectReference Include="..\ND.PantryPlanner.DataLayer\ND.PantryPlanner.DataLayer.csproj" />
-	  <ProjectReference Include="..\ND.PantryPlanner.EntityLayer\ND.PantryPlanner.EntityLayer.csproj" />
+	  <ProjectReference Include="..\ND.PantryPlanner.ModelLayer\ND.PantryPlanner.ModelLayer.csproj" />
 	  <ProjectReference Include="..\ND.PantryPlanner.ViewModelLayer\ND.PantryPlanner.ViewModelLayer.csproj" />
 	</ItemGroup>
 

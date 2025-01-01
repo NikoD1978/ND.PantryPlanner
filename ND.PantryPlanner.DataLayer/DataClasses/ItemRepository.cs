@@ -4,7 +4,7 @@ using Microsoft.Data.Sqlite;
 
 using ND.PantryPlanner.Common.App;
 using ND.PantryPlanner.Common.Interfaces;
-using ND.PantryPlanner.EntityLayer.EntityClasses;
+using ND.PantryPlanner.ModelLayer.Models;
 
 namespace ND.PantryPlanner.DataLayer.DataClasses
 {
@@ -69,7 +69,7 @@ namespace ND.PantryPlanner.DataLayer.DataClasses
     /// <summary>
     /// Adds a new item to the database
     /// </summary>
-    public void Add(Item entity)
+    public void Add(Item item)
     {
       throw new NotImplementedException();
     }
