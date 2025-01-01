@@ -46,5 +46,15 @@ namespace ND.PantryPlanner.ViewModelLayer.ViewModels
         return _itemList;
       }
     }
+
+    public ObservableCollection<Item> Get()
+    {
+      if (_repository != null)
+      {
+        _itemList = new ObservableCollection<Item>(_repository.Get());
+      }
+
+      return _itemList;
+    }
   }
 }
