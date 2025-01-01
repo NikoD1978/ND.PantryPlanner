@@ -1,6 +1,11 @@
 ﻿using Microsoft.Extensions.Logging;
 
+using ND.PantryPlanner.Common.Interfaces;
 using ND.PantryPlanner.DataLayer.Initialization;
+using ND.PantryPlanner.DataLayer.Repositories;
+using ND.PantryPlanner.MAUI.Views;
+using ND.PantryPlanner.ModelLayer.Models;
+using ND.PantryPlanner.ViewModelLayer.ViewModels;
 
 namespace ND.PantryPlanner.MAUI
 {
@@ -27,6 +32,15 @@ namespace ND.PantryPlanner.MAUI
       // Initialize the database, create a database file if it doesn't exist
       var database = new DatabaseInitializer();
       database.Initialize();
+
+      // DI Services (Repositories)
+      builder.Services.AddScoped<IRepository<Item>, ItemRepository>();
+
+      // DI Services (Commands)
+      builder.Services.AddSingleton<AddItem>();
+
+      // DI Services (ViewModels)
+      builder.Services.AddSingleton<ItemViewModel>();
 
       return builder.Build();
     }

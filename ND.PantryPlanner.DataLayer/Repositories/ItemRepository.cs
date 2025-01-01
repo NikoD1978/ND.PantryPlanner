@@ -1,5 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-
+using System.Diagnostics;
 using Microsoft.Data.Sqlite;
 
 using ND.PantryPlanner.Common.App;
@@ -26,10 +26,10 @@ namespace ND.PantryPlanner.DataLayer.Repositories
 
         var command = connection.CreateCommand();
         command.CommandText = @$"
-          SELECT name
-          FROM user
-          WHERE id = $id
-        ";
+            SELECT name
+            FROM user
+            WHERE id = $id
+          ";
         //command.Parameters.AddWithValue("$id", id);
 
         try
@@ -40,14 +40,15 @@ namespace ND.PantryPlanner.DataLayer.Repositories
             {
               var name = reader.GetString(0);
 
-              Console.WriteLine($"Hello, {name}!");
+              Debug.WriteLine($"Hello, {name}!");
             }
           }
         }
         catch (SqliteException e)
         {
           // TODO: Make up my mind about how I want to handle and document exceptions
-          //Console.WriteLine($"An error occurred: {e.Message}");
+          Debug.WriteLine($"An error occurred: {e.Message}");
+          throw;
         }
         finally
         {
