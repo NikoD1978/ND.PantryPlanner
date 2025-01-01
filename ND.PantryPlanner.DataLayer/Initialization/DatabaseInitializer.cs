@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.Sqlite;
 
 using ND.PantryPlanner.Common.App;
+using ND.PantryPlanner.ModelLayer.DatabaseStructures.Schemas;
 
 namespace ND.PantryPlanner.DataLayer.Initialization
 {
@@ -35,12 +36,7 @@ namespace ND.PantryPlanner.DataLayer.Initialization
         connection.Open();
 
         var command = connection.CreateCommand();
-        command.CommandText = @$"
-          CREATE TABLE IF NOT EXISTS Item (
-            Id INTEGER PRIMARY KEY AUTOINCREMENT,
-            Name TEXT NOT NULL,
-            Quantity INTEGER NOT NULL
-          );";
+        command.CommandText = Schemas.DatabaseSchema;
 
         command.ExecuteNonQuery();
       }

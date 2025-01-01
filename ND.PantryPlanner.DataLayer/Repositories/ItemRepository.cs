@@ -6,7 +6,7 @@ using ND.PantryPlanner.Common.App;
 using ND.PantryPlanner.Common.Interfaces;
 using ND.PantryPlanner.ModelLayer.Models;
 
-namespace ND.PantryPlanner.DataLayer.DataClasses
+namespace ND.PantryPlanner.DataLayer.Repositories
 {
   /// <summary>
   /// Repository for getting stored items and their information as well as adding new items

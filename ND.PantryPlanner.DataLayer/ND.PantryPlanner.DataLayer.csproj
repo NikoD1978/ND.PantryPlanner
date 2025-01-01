@@ -15,4 +15,8 @@
     <ProjectReference Include="..\ND.PantryPlanner.ModelLayer\ND.PantryPlanner.ModelLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>
