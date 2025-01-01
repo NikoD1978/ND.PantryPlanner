@@ -8,8 +8,14 @@ using ND.PantryPlanner.EntityLayer.EntityClasses;
 
 namespace ND.PantryPlanner.DataLayer.DataClasses
 {
+  /// <summary>
+  /// Repository for getting stored items and their information as well as adding new items
+  /// </summary>
   public class ItemRepository : IRepository<Item>
   {
+    /// <summary>
+    /// Gets all items from the database
+    /// </summary>
     public ObservableCollection<Item> Get()
     {
       var result = new ObservableCollection<Item>();
@@ -52,11 +58,17 @@ namespace ND.PantryPlanner.DataLayer.DataClasses
       }
     }
 
+    /// <summary>
+    /// Gets a single item by its ID
+    /// </summary>
     public Item? Get(int id)
     {
       throw new NotImplementedException();
     }
 
+    /// <summary>
+    /// Adds a new item to the database
+    /// </summary>
     public void Add(Item entity)
     {
       throw new NotImplementedException();

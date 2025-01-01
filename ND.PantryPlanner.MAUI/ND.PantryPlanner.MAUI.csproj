@@ -70,4 +70,8 @@
 	  <ProjectReference Include="..\ND.PantryPlanner.ViewModelLayer\ND.PantryPlanner.ViewModelLayer.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="CommandClasses\" />
+	</ItemGroup>
+
 </Project>

@@ -3,6 +3,9 @@ using ND.PantryPlanner.EntityLayer.Enums;
 
 namespace ND.PantryPlanner.EntityLayer.EntityClasses
 {
+  /// <summary>
+  /// Represents an item in the pantry
+  /// </summary>
   public class Item : EntityBase
   {
     #region Private Fields
@@ -18,93 +21,143 @@ namespace ND.PantryPlanner.EntityLayer.EntityClasses
     #endregion
 
     #region Public Properties
+    /// <summary>
+    /// The unique identifier for the item in the database
+    /// </summary>
     public int Id
     {
       get { return _id; }
       set
       {
+        if (_id == value) return;
+
         _id = value;
-        OnPropertyChanged(nameof(_id));
+        OnPropertyChanged();
       }
     }
 
+    /// <summary>
+    /// The name of the item
+    /// </summary>
     public string Name
     {
       get { return _name; }
       set
       {
+        if (_name == value) return;
+
         _name = value;
-        OnPropertyChanged(nameof(_name));
+        OnPropertyChanged();
       }
     }
 
+    /// <summary>
+    /// A description of the item
+    /// </summary>
     public string Description
     {
       get { return _description; }
       set
       {
+        if (_description == value) return;
+
         _description = value;
-        OnPropertyChanged(nameof(_description));
+        OnPropertyChanged();
       }
     }
 
+    /// <summary>
+    /// The type of item. Valid values are defined in the ItemType enum.
+    /// </summary>
     public ItemType ItemType
     {
       get { return _itemType; }
       set
       {
+        if (_itemType == value) return;
+
         _itemType = value;
-        OnPropertyChanged(nameof(_itemType));
+        OnPropertyChanged();
       }
     }
 
+    /// <summary>
+    /// The location type of the item. Valid values are defined in the LocationType enum.
+    /// </summary>
     public LocationType LocationType
     {
       get { return _locationType; }
       set
       {
+        if (_locationType == value) return;
+
         _locationType = value;
-        OnPropertyChanged(nameof(_locationType));
+        OnPropertyChanged();
       }
     }
 
+    /// <summary>
+    /// The quantity of the item
+    /// </summary>
     public int Quantity
     {
       get { return _quantity; }
       set
       {
+        if (_quantity == value) return;
+
         _quantity = value;
-        OnPropertyChanged(nameof(_quantity));
+        OnPropertyChanged();
       }
     }
 
+    /// <summary>
+    /// The expiration date of the item, if it has one
+    /// </summary>
     public DateTime? ExpirationDate
     {
       get { return _expirationDate; }
       set
       {
+        if (_expirationDate == value) return;
+
         _expirationDate = value;
-        OnPropertyChanged(nameof(_expirationDate));
+        OnPropertyChanged();
       }
     }
 
+    /// <summary>
+    /// Indicates whether the item has an expiration date
+    /// </summary>
+    public bool HasExpirationDate => ExpirationDate.HasValue;
+
+    /// <summary>
+    /// Indicates whether the item has to be refrigerated
+    /// </summary>
     public bool HasToBeRefrigerated
     {
       get { return _hasToBeRefrigerated; }
       set
       {
+        if (_hasToBeRefrigerated == value) return;
+
         _hasToBeRefrigerated = value;
-        OnPropertyChanged(nameof(_hasToBeRefrigerated));
+        OnPropertyChanged();
       }
     }
 
-    public string? ImagePath
+    /// <summary>
+    /// The path to the image file showing the item
+    /// </summary>
+    public string ImagePath
     {
       get { return _imagePath; }
       set
       {
+        if (_imagePath == value) return;
+
         _imagePath = value;
-        OnPropertyChanged(nameof(_imagePath));
+        OnPropertyChanged();
       }
     }
     #endregion

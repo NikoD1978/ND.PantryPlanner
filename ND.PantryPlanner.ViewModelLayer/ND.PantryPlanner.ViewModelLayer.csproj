@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ND.PantryPlanner.Common\ND.PantryPlanner.Common.csproj" />
+    <ProjectReference Include="..\ND.PantryPlanner.EntityLayer\ND.PantryPlanner.EntityLayer.csproj" />
+  </ItemGroup>
+
 </Project>
