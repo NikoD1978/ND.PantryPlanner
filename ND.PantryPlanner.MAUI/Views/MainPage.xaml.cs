@@ -4,7 +4,11 @@ namespace ND.PantryPlanner.MAUI.Views
 {
   public partial class MainPage : ContentPage
   {
+    /// <summary>
+    /// The view model for the main page
+    /// </summary>
     private readonly ItemViewModel _viewModel;
+
     int count = 0;
 
     public MainPage(ItemViewModel viewModel)
@@ -26,6 +30,9 @@ namespace ND.PantryPlanner.MAUI.Views
       SemanticScreenReader.Announce(CounterBtn.Text);
     }
 
+    /// <summary>
+    /// When the page appears, get the list of items
+    /// </summary>
     protected override void OnAppearing()
     {
       base.OnAppearing();

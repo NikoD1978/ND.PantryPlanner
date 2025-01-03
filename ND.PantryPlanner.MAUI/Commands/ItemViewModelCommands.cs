@@ -8,13 +8,9 @@ namespace ND.PantryPlanner.MAUI.Commands
 {
   public class ItemViewModelCommands : ItemViewModel
   {
-    public ItemViewModelCommands() : base()
-    {
-    }
+    public ItemViewModelCommands() : base() => Init();
 
-    public ItemViewModelCommands(IRepository<Item> repository) : base(repository)
-    {
-    }
+    public ItemViewModelCommands(IRepository<Item> repository) : base(repository) => Init();
 
     public ICommand ShowAddItemCommand { get; private set; }
 
@@ -23,12 +19,17 @@ namespace ND.PantryPlanner.MAUI.Commands
       base.Init();
 
       // Create commands for this view
-      ShowAddItemCommand = new Command<int>(async (int id) => await ShowAddItemAsync(id), (id) => true);
+      //ShowAddItemCommand = new Command<int>(async (int id) => await ShowAddItemAsync(id), (id) => true);
+      ShowAddItemCommand = new Command<int>(async (int id) => await ShowAddItemAsync());
     }
 
-    protected async Task ShowAddItemAsync(int id)
+    /// <summary>
+    /// Shows the Add Item page
+    /// </summary>
+    protected async Task ShowAddItemAsync()//int id)
     {
-      await Shell.Current.GoToAsync($"{nameof(Views.MainPage)}?id={id}");
+      //await Shell.Current.GoToAsync($"{nameof(Views.AddItem)}?id={id}");
+      await Shell.Current.GoToAsync($"{nameof(Views.AddItem)}");
     }
   }
 }

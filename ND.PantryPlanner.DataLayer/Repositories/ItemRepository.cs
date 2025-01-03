@@ -22,38 +22,38 @@ namespace ND.PantryPlanner.DataLayer.Repositories
 
       using (var connection = new SqliteConnection(Settings.ConnectionString))
       {
-        connection.Open();
+        //connection.Open();
 
-        var command = connection.CreateCommand();
-        command.CommandText = @$"
-            SELECT name
-            FROM user
-            WHERE id = $id
-          ";
-        //command.Parameters.AddWithValue("$id", id);
+        //var command = connection.CreateCommand();
+        //command.CommandText = @$"
+        //    SELECT name
+        //    FROM user
+        //    WHERE id = $id
+        //  ";
+        ////command.Parameters.AddWithValue("$id", id);
 
-        try
-        {
-          using (var reader = command.ExecuteReader())
-          {
-            while (reader.Read())
-            {
-              var name = reader.GetString(0);
+        //try
+        //{
+        //  using (var reader = command.ExecuteReader())
+        //  {
+        //    while (reader.Read())
+        //    {
+        //      var name = reader.GetString(0);
 
-              Debug.WriteLine($"Hello, {name}!");
-            }
-          }
-        }
-        catch (SqliteException e)
-        {
-          // TODO: Make up my mind about how I want to handle and document exceptions
-          Debug.WriteLine($"An error occurred: {e.Message}");
-          throw;
-        }
-        finally
-        {
-          connection.Close();
-        }
+        //      Debug.WriteLine($"Hello, {name}!");
+        //    }
+        //  }
+        //}
+        //catch (SqliteException e)
+        //{
+        //  // TODO: Make up my mind about how I want to handle and document exceptions
+        //  Debug.WriteLine($"An error occurred: {e.Message}");
+        //  throw;
+        //}
+        //finally
+        //{
+        //  connection.Close();
+        //}
 
         return result;
       }
