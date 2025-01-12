@@ -68,8 +68,16 @@ namespace ND.PantryPlanner.MAUI.Commands
       var result = await Application.Current.MainPage.DisplayAlert("Delete Item", "Are you sure you want to delete this item?", "Yes", "No");
       if (result)
       {
-        base.Delete(id);
-        await Shell.Current.GoToAsync("..");
+        if (base.Delete(id))
+        {
+          // Send a message to notify that the item has been deleted
+          MessagingCenter.Send(this, "ItemDeleted");
+          await Shell.Current.GoToAsync("..");
+        }
+        else
+        {
+          await Application.Current.MainPage.DisplayAlert("Error", "Failed to delete the item.", "OK");
+        }
       }
     }
   }

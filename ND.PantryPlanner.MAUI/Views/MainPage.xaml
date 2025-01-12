@@ -49,7 +49,9 @@
                             CommandParameter="{Binding Id}"
                             Command="{Binding Source={x:Reference MainPageView}, Path=BindingContext.ShowEditItemCommand}" />
                     <Button Text="Delete"
-                            Margin="0,10,10,0"/>
+                            Margin="0,10,10,0"
+                            CommandParameter="{Binding Id}"
+                            Command="{Binding Source={x:Reference MainPageView}, Path=BindingContext.DeleteItemCommand}"/>
                   </HorizontalStackLayout>
                 </VerticalStackLayout>
               </Frame>
