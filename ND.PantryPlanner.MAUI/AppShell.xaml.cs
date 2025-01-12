@@ -9,6 +9,7 @@ namespace ND.PantryPlanner.MAUI
       InitializeComponent();
 
       Routing.RegisterRoute(nameof(AddItem), typeof(AddItem));
+      Routing.RegisterRoute(nameof(EditItem), typeof(EditItem));
     }
   }
 }

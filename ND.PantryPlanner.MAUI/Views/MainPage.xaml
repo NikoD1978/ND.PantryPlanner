@@ -41,15 +41,15 @@
                   </HorizontalStackLayout>
                   <HorizontalStackLayout>
                     <Label Text="{Binding Description}"
-                           Margin="0,10,10,10"/>
+                           Margin="0,10,10,0"/>
                   </HorizontalStackLayout>
-                  <HorizontalStackLayout Margin="5,10,5,5">
+                  <HorizontalStackLayout Margin="0,10,5,5">
                     <Button Text="Edit"
-                            Margin="0,10,10,10"
+                            Margin="0,10,10,0"
                             CommandParameter="{Binding Id}"
                             Command="{Binding Source={x:Reference MainPageView}, Path=BindingContext.ShowEditItemCommand}" />
                     <Button Text="Delete"
-                            Margin="0,10,10,10"/>
+                            Margin="0,10,10,0"/>
                   </HorizontalStackLayout>
                 </VerticalStackLayout>
               </Frame>

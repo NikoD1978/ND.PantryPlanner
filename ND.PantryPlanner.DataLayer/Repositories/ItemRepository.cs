@@ -140,5 +140,36 @@ namespace ND.PantryPlanner.DataLayer.Repositories
         }
       }
     }
+
+    /// <summary>
+    /// Removes an item from the database
+    /// </summary>
+    public bool Remove(int id)
+    {
+      using (var connection = new SqliteConnection(Settings.ConnectionString))
+      {
+        connection.Open();
+
+        var command = connection.CreateCommand();
+        command.CommandText = $"DELETE FROM ND_ITEMS WHERE ITEM_ID = ${nameof(id)};";
+
+        command.Parameters.AddWithValue($"${nameof(id)}", id);
+
+        try
+        {
+          command.ExecuteNonQuery();
+          return true;
+        }
+        catch (SqliteException e)
+        {
+          Debug.WriteLine($"An error occurred: {e.Message}");
+          return false;
+        }
+        finally
+        {
+          connection.Close();
+        }
+      }
+    }
   }
 }

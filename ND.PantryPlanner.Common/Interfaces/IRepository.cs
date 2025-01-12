@@ -21,5 +21,10 @@ namespace ND.PantryPlanner.Common.Interfaces
     /// Adds a new object to the repository
     /// </summary>
     public bool Add(TEntity entity);
+
+    /// <summary>
+    /// Deletes an object from the repository
+    /// </summary>
+    public bool Remove(int id);
   }
 }

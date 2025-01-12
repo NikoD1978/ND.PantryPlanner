@@ -8,10 +8,12 @@
              x:DataType="vm:ItemViewModelCommands"
              x:Name="EditItemView"
              Title="Edit Item">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+  <VerticalStackLayout>
+    <partial:HeaderView ViewTitle="Modify Item"
+                        ViewDescription="Use this screen to modify an existing item from your pantry." />
+
+    <BoxView Margin="10,10,10,10"
+             HeightRequest="1"
+             Color="Black" />
+  </VerticalStackLayout>
 </ContentPage>

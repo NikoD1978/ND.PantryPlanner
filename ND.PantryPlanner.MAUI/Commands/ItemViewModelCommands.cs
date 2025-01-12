@@ -15,6 +15,7 @@ namespace ND.PantryPlanner.MAUI.Commands
     public ICommand ShowAddItemCommand { get; private set; }
     public ICommand ShowEditItemCommand { get; private set; }
     public ICommand SaveItemCommand { get; private set; }
+    public ICommand DeleteItemCommand { get; private set; }
     public ICommand CancelCommand { get; private set; }
 
     public override void Init()
@@ -22,30 +23,30 @@ namespace ND.PantryPlanner.MAUI.Commands
       base.Init();
       GetItemTypes();
       
-
       // Create commands for this view
-      //ShowAddItemCommand = new Command<int>(async (int id) => await ShowAddItemAsync(id), (id) => true);
       ShowAddItemCommand = new Command(async () => await ShowAddItemAsync());
+      ShowEditItemCommand = new Command<int>(async (int id) => await ShowEditItemAsync(id), (id) => true);
       SaveItemCommand = new Command(async () => await SaveItemAsync());
+      DeleteItemCommand = new Command<int>(async (int id) => await DeleteItemAsync(id), (id) => true);
       CancelCommand = new Command(async () => await CancelAsync());
     }
 
     /// <summary>
     /// Shows the Add Item page
     /// </summary>
-    private async Task ShowAddItemAsync()
+    public async Task ShowAddItemAsync()
     {
       ItemObject = new Item();
 
       await Shell.Current.GoToAsync($"{nameof(Views.AddItem)}");
     }
 
-    private async Task ShowEditItemAsync(int id)
+    public async Task ShowEditItemAsync(int id)
     {
       await Shell.Current.GoToAsync($"{nameof(Views.EditItem)}?id={id}");
     }
 
-    private async Task<bool> SaveItemAsync()
+    public async Task<bool> SaveItemAsync()
     {
       var result = base.Save();
 
@@ -57,9 +58,19 @@ namespace ND.PantryPlanner.MAUI.Commands
       return result;
     }
 
-    private async Task CancelAsync()
+    public async Task CancelAsync()
     {
       await Shell.Current.GoToAsync("..");
+    }
+
+    public async Task DeleteItemAsync(int id)
+    {
+      var result = await Application.Current.MainPage.DisplayAlert("Delete Item", "Are you sure you want to delete this item?", "Yes", "No");
+      if (result)
+      {
+        base.Delete(id);
+        await Shell.Current.GoToAsync("..");
+      }
     }
   }
 }

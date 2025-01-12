@@ -98,6 +98,11 @@ namespace ND.PantryPlanner.ViewModelLayer.ViewModels
       return Repository.Add(ItemObject);
     }
 
+    public virtual bool Delete(int id)
+    {
+      return Repository.Remove(id);
+    }
+
     public ObservableCollection<string> GetItemTypes()
     {
       ItemTypesList = new ObservableCollection<string>();
