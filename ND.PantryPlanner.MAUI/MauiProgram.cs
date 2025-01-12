@@ -17,6 +17,10 @@ namespace ND.PantryPlanner.MAUI
   {
     public static MauiApp CreateMauiApp()
     {
+      // Initialize the database, create a database file if it doesn't exist
+      var database = new DatabaseInitializer();
+      database.Initialize();
+
       var builder = MauiApp.CreateBuilder();
       builder
           .UseMauiApp<App>()
@@ -29,10 +33,6 @@ namespace ND.PantryPlanner.MAUI
 #if DEBUG
       builder.Logging.AddDebug();
 #endif
-
-      // Initialize the database, create a database file if it doesn't exist
-      var database = new DatabaseInitializer();
-      database.Initialize();
 
       // DI Services (Repositories)
       builder.Services.AddTransient<IRepository<Item>, ItemRepository>();

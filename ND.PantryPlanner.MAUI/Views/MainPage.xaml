@@ -10,6 +10,7 @@
 
   <ScrollView>
     <VerticalStackLayout>
+      
       <HorizontalStackLayout>
         <Button Text="Add Item"
                 FontAutoScalingEnabled="True"
@@ -20,12 +21,41 @@
         <partial:HeaderView ViewTitle="Item List"
                             ViewDescription="The list of items in your pantry." />
       </HorizontalStackLayout>
+      
       <BoxView Margin="0,0,0,10"
                HeightRequest="1"
                Color="Black" />
-      <ListView>
-        
+      
+      <ListView Grid.Row="1"
+          ItemsSource="{Binding ItemList}">
+        <ListView.ItemTemplate>
+          <DataTemplate x:DataType="model:Item">
+            <ViewCell>
+              <Frame Margin="8"
+               Padding="12">
+                <VerticalStackLayout Spacing="4">
+                  <HorizontalStackLayout>
+                    <Label FontAttributes="Bold"
+                     FontSize="Title"
+                     Text="{Binding Name}" />
+                  </HorizontalStackLayout>
+                  <HorizontalStackLayout>
+                    <Label Text="Description" />
+                    <Label Text="{Binding Description}" />
+                  </HorizontalStackLayout>
+                  <HorizontalStackLayout Margin="5,10,5,5">
+                    <Button Text="Edit"
+                      CommandParameter="{Binding Id}"
+                      Command="{Binding Source={x:Reference MainPageView}, Path=BindingContext.ShowEditItemCommand}" />
+                    <Button Text="Delete" />
+                  </HorizontalStackLayout>
+                </VerticalStackLayout>
+              </Frame>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
       </ListView>
+      
     </VerticalStackLayout>
   </ScrollView>
 </ContentPage>

@@ -67,5 +67,10 @@ namespace ND.PantryPlanner.ViewModelLayer.ViewModels
 
       return _item;
     }
+
+    public virtual bool Save()
+    {
+      return false;
+    }
   }
 }

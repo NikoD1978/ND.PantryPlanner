@@ -19,7 +19,7 @@ namespace ND.PantryPlanner.DataLayer.Initialization
 
     public void Initialize()
     {
-      var directory = Path.GetDirectoryName(_databasePath);
+      var directory = Path.GetDirectoryName(Settings.DatabasePath);// _databasePath);
 
       if (!Directory.Exists(directory))
       {
