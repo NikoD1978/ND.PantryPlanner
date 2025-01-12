@@ -18,6 +18,9 @@ namespace ND.PantryPlanner.MAUI.Commands
     public ICommand DeleteItemCommand { get; private set; }
     public ICommand CancelCommand { get; private set; }
 
+    /// <summary>
+    /// Initializes the view model
+    /// </summary>
     public override void Init()
     {
       base.Init();
@@ -41,11 +44,17 @@ namespace ND.PantryPlanner.MAUI.Commands
       await Shell.Current.GoToAsync($"{nameof(Views.AddItem)}");
     }
 
+    /// <summary>
+    /// Shows the Edit Item page
+    /// </summary>
     public async Task ShowEditItemAsync(int id)
     {
       await Shell.Current.GoToAsync($"{nameof(Views.EditItem)}?id={id}");
     }
 
+    /// <summary>
+    /// Saves the item to the repository
+    /// </summary>
     public async Task<bool> SaveItemAsync()
     {
       var result = base.Save();
@@ -58,11 +67,17 @@ namespace ND.PantryPlanner.MAUI.Commands
       return result;
     }
 
+    /// <summary>
+    /// Cancels the current operation and navigates back to the previous page
+    /// </summary>
     public async Task CancelAsync()
     {
       await Shell.Current.GoToAsync("..");
     }
 
+    /// <summary>
+    /// Deletes the item from the repository
+    /// </summary>
     public async Task DeleteItemAsync(int id)
     {
       var result = await Application.Current.MainPage.DisplayAlert("Delete Item", "Are you sure you want to delete this item?", "Yes", "No");

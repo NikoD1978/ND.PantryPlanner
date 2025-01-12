@@ -25,8 +25,7 @@ namespace ND.PantryPlanner.MAUI.Views
 
     private async Task RefreshDataAsync()
     {
-      // Your logic to refresh the data
-      // For example, reloading the item list from the repository
+      // Reloading the item list from the repository
       var viewModel = BindingContext as ItemViewModel;
       if (viewModel != null)
       {

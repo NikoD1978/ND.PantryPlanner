@@ -34,16 +34,9 @@ namespace ND.PantryPlanner.MAUI
       builder.Logging.AddDebug();
 #endif
 
-      // DI Services (Repositories)
+      // DI Services
       builder.Services.AddScoped<IRepository<Item>, ItemRepository>();
-
-      // DI Services (Commands)
       builder.Services.AddScoped<ItemViewModelCommands>();
-
-      //// DI Services (ViewModels)
-      //builder.Services.AddScoped<ItemViewModel>();
-
-      // DI Services (Views)
       builder.Services.AddScoped<MainPage>();
       builder.Services.AddScoped<AddItem>();
 

@@ -34,7 +34,7 @@ namespace ND.PantryPlanner.ViewModelLayer.ViewModels
     private Item _itemObject;
 
     /// <summary>
-    /// Gets the current list of items
+    /// Current list of items
     /// </summary>
     public ObservableCollection<Item> ItemList
     {
@@ -53,6 +53,9 @@ namespace ND.PantryPlanner.ViewModelLayer.ViewModels
       }
     }
 
+    /// <summary>
+    /// List of item types
+    /// </summary>
     public ObservableCollection<string> ItemTypesList
     {
       get { return _itemTypesList; }
@@ -63,6 +66,9 @@ namespace ND.PantryPlanner.ViewModelLayer.ViewModels
       }
     }
 
+    /// <summary>
+    /// Current item object
+    /// </summary>
     public Item ItemObject
     {
       get { return _itemObject; }
@@ -73,6 +79,9 @@ namespace ND.PantryPlanner.ViewModelLayer.ViewModels
       }
     }
 
+    /// <summary>
+    /// Gets the list of items
+    /// </summary>
     public ObservableCollection<Item> Get()
     {
       if (Repository != null)
@@ -83,6 +92,9 @@ namespace ND.PantryPlanner.ViewModelLayer.ViewModels
       return ItemList;
     }
 
+    /// <summary>
+    /// Gets a single item by its ID
+    /// </summary>
     public Item Get(int id)
     {
       if (Repository != null)
@@ -93,16 +105,25 @@ namespace ND.PantryPlanner.ViewModelLayer.ViewModels
       return ItemObject;
     }
 
+    /// <summary>
+    /// Saves the current item object
+    /// </summary>
     public virtual bool Save()
     {
       return Repository.Add(ItemObject);
     }
 
+    /// <summary>
+    /// Deletes an item by its ID
+    /// </summary>
     public virtual bool Delete(int id)
     {
       return Repository.Remove(id);
     }
 
+    /// <summary>
+    /// Gets the list of item types
+    /// </summary>
     public ObservableCollection<string> GetItemTypes()
     {
       ItemTypesList = new ObservableCollection<string>();
