@@ -27,12 +27,12 @@
                Color="Black" />
       
       <ListView Grid.Row="1"
-          ItemsSource="{Binding ItemList}">
+                ItemsSource="{Binding ItemList}">
         <ListView.ItemTemplate>
           <DataTemplate x:DataType="model:Item">
             <ViewCell>
               <Frame Margin="8"
-               Padding="12">
+                     Padding="12">
                 <VerticalStackLayout Spacing="4">
                   <HorizontalStackLayout>
                     <Label FontAttributes="Bold"
@@ -45,8 +45,8 @@
                   </HorizontalStackLayout>
                   <HorizontalStackLayout Margin="5,10,5,5">
                     <Button Text="Edit"
-                      CommandParameter="{Binding Id}"
-                      Command="{Binding Source={x:Reference MainPageView}, Path=BindingContext.ShowEditItemCommand}" />
+                            CommandParameter="{Binding Id}"
+                            Command="{Binding Source={x:Reference MainPageView}, Path=BindingContext.ShowEditItemCommand}" />
                     <Button Text="Delete" />
                   </HorizontalStackLayout>
                 </VerticalStackLayout>

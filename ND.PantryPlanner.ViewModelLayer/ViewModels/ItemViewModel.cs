@@ -2,6 +2,7 @@
 
 using ND.PantryPlanner.Common.BaseClasses;
 using ND.PantryPlanner.Common.Interfaces;
+using ND.PantryPlanner.ModelLayer.Enums;
 using ND.PantryPlanner.ModelLayer.Models;
 
 namespace ND.PantryPlanner.ViewModelLayer.ViewModels
@@ -31,6 +32,7 @@ namespace ND.PantryPlanner.ViewModelLayer.ViewModels
 
     private readonly IRepository<Item> _repository;
     private ObservableCollection<Item> _itemList;
+    private ObservableCollection<string> _itemTypesList = new();
     private Item _item;
 
     /// <summary>
@@ -45,6 +47,34 @@ namespace ND.PantryPlanner.ViewModelLayer.ViewModels
           _itemList = _repository.Get();
         }
         return _itemList;
+      }
+      set
+      {
+        _itemList = value;
+        OnPropertyChanged();
+      }
+    }
+
+    public ObservableCollection<string> ItemTypesList
+    {
+      get { return _itemTypesList; }
+      set
+      {
+        _itemTypesList = value;
+        OnPropertyChanged();
+      }
+    }
+
+    public Item Item
+    {
+      get
+      {
+        return _item;
+      }
+      set
+      {
+        _item = value;
+        OnPropertyChanged();
       }
     }
 
@@ -62,15 +92,27 @@ namespace ND.PantryPlanner.ViewModelLayer.ViewModels
     {
       if (_repository != null)
       {
-        _item = _repository.Get(id);
+        Item = _repository.Get(id);
       }
 
-      return _item;
+      return Item;
     }
 
     public virtual bool Save()
     {
       return false;
+    }
+
+    public ObservableCollection<string> GetItemTypes()
+    {
+      ItemTypesList = new ObservableCollection<string>();
+
+      foreach (var itemType in Enum.GetValues(typeof(ItemType)))
+      {
+        ItemTypesList.Add(itemType.ToString());
+      }
+
+      return ItemTypesList;
     }
   }
 }

@@ -19,6 +19,7 @@ namespace ND.PantryPlanner.MAUI.Commands
     public override void Init()
     {
       base.Init();
+      GetItemTypes();
 
       // Create commands for this view
       //ShowAddItemCommand = new Command<int>(async (int id) => await ShowAddItemAsync(id), (id) => true);

@@ -3,13 +3,66 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:ND.PantryPlanner.MAUI.Commands"
              xmlns:model="clr-namespace:ND.PantryPlanner.ModelLayer.Models;assembly=ND.PantryPlanner.ModelLayer"
+             xmlns:partial="clr-namespace:ND.PantryPlanner.MAUI.ViewsPartial"
              x:Class="ND.PantryPlanner.MAUI.Views.AddItem"
              x:DataType="vm:ItemViewModelCommands"
              x:Name="AddItemView"
              Title="Add Item">
+
   <VerticalStackLayout>
-    <Label Text="Welcome to .NET MAUI!"
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
-  </VerticalStackLayout>
+    <partial:HeaderView ViewTitle="Add new Item"
+                          ViewDescription="Use this screen to register a new item for your pantry." />
+
+    <BoxView Margin="10,10,10,10"
+             HeightRequest="1"
+             Color="Black" />
+
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+          ColumnDefinitions="Auto,*">
+      
+      <Label Grid.Row="1"
+             Margin="10,10,10,10"
+             Text="Name" 
+             VerticalTextAlignment="Center"/>
+      <Entry Grid.Row="1"
+             Margin="10,10,10,10"
+             Grid.Column="1"
+             Text="" />
+      
+      <Label Grid.Row="2"
+             Margin="10,10,10,10"
+             Text="Description" 
+             VerticalTextAlignment="Center"/>
+      <Entry Grid.Row="2"
+             Margin="10,10,10,10"
+             Grid.Column="1"/>
+
+      <Label Grid.Row="3"
+             Margin="10,10,10,10"
+             Text="Item Type" 
+             VerticalTextAlignment="Center"/>
+      <Picker Grid.Row="3"
+              Margin="10,10,10,10"
+              Grid.Column="1"
+              ItemsSource="{Binding ItemTypesList}"
+              SelectedItem="{Binding Item.ItemType}">
+      </Picker>
+
+      <HorizontalStackLayout Grid.Row="4"
+                             Grid.Column="1">
+        <Button Text="Save" 
+                FontAutoScalingEnabled="True"
+                FontAttributes="Bold"
+                Margin="10,10,10,10"
+                WidthRequest="100"
+                HorizontalOptions="Start"/>
+        <Button Text="Cancel" 
+                FontAutoScalingEnabled="True"
+                FontAttributes="Bold"
+                Margin="10,10,10,10"
+                WidthRequest="100"
+                HorizontalOptions="End"/>
+      </HorizontalStackLayout>
+    </Grid>
+  </VerticalStackLayout>  
 </ContentPage>

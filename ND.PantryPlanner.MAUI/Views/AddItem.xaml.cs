@@ -18,6 +18,7 @@ namespace ND.PantryPlanner.MAUI.Views
     {
       base.OnAppearing();
       _viewModel.Get();
+      _viewModel.GetItemTypes();
     }
   }
 }
