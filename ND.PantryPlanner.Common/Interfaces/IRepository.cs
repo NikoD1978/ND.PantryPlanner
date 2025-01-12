@@ -20,6 +20,6 @@ namespace ND.PantryPlanner.Common.Interfaces
     /// <summary>
     /// Adds a new object to the repository
     /// </summary>
-    public void Add(TEntity entity);
+    public bool Add(TEntity entity);
   }
 }

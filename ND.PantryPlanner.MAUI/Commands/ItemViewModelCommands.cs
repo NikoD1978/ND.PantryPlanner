@@ -15,16 +15,19 @@ namespace ND.PantryPlanner.MAUI.Commands
     public ICommand ShowAddItemCommand { get; private set; }
     public ICommand ShowEditItemCommand { get; private set; }
     public ICommand SaveItemCommand { get; private set; }
+    public ICommand CancelCommand { get; private set; }
 
     public override void Init()
     {
       base.Init();
       GetItemTypes();
+      
 
       // Create commands for this view
       //ShowAddItemCommand = new Command<int>(async (int id) => await ShowAddItemAsync(id), (id) => true);
       ShowAddItemCommand = new Command(async () => await ShowAddItemAsync());
       SaveItemCommand = new Command(async () => await SaveItemAsync());
+      CancelCommand = new Command(async () => await CancelAsync());
     }
 
     /// <summary>
@@ -32,6 +35,8 @@ namespace ND.PantryPlanner.MAUI.Commands
     /// </summary>
     private async Task ShowAddItemAsync()
     {
+      ItemObject = new Item();
+
       await Shell.Current.GoToAsync($"{nameof(Views.AddItem)}");
     }
 
@@ -50,6 +55,11 @@ namespace ND.PantryPlanner.MAUI.Commands
       }
 
       return result;
+    }
+
+    private async Task CancelAsync()
+    {
+      await Shell.Current.GoToAsync("..");
     }
   }
 }

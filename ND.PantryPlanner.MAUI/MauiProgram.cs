@@ -35,17 +35,17 @@ namespace ND.PantryPlanner.MAUI
 #endif
 
       // DI Services (Repositories)
-      builder.Services.AddTransient<IRepository<Item>, ItemRepository>();
+      builder.Services.AddScoped<IRepository<Item>, ItemRepository>();
 
       // DI Services (Commands)
-      builder.Services.AddSingleton<ItemViewModelCommands>();
+      builder.Services.AddScoped<ItemViewModelCommands>();
 
-      // DI Services (ViewModels)
-      builder.Services.AddSingleton<ItemViewModel>();
+      //// DI Services (ViewModels)
+      //builder.Services.AddScoped<ItemViewModel>();
 
       // DI Services (Views)
-      builder.Services.AddTransient<MainPage>();
-      builder.Services.AddTransient<AddItem>();
+      builder.Services.AddScoped<MainPage>();
+      builder.Services.AddScoped<AddItem>();
 
       return builder.Build();
     }

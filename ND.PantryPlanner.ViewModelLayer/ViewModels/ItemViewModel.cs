@@ -17,8 +17,6 @@ namespace ND.PantryPlanner.ViewModelLayer.ViewModels
     /// </summary>
     public ItemViewModel() : base()
     {
-      _repository = null!; // "Forgives" null value; avoids warning CS8618
-      _itemList = new ObservableCollection<Item>();
     }
 
     /// <summary>
@@ -26,14 +24,14 @@ namespace ND.PantryPlanner.ViewModelLayer.ViewModels
     /// </summary>
     public ItemViewModel(IRepository<Item> repository) : base()
     {
-      _repository = repository;
+      Repository = repository;
       _itemList = new ObservableCollection<Item>();
     }
 
-    private readonly IRepository<Item> _repository;
+    private readonly IRepository<Item> Repository;
     private ObservableCollection<Item> _itemList;
     private ObservableCollection<string> _itemTypesList = new();
-    private Item _item;
+    private Item _itemObject;
 
     /// <summary>
     /// Gets the current list of items
@@ -44,7 +42,7 @@ namespace ND.PantryPlanner.ViewModelLayer.ViewModels
       {
         if (_itemList == null)
         {
-          _itemList = _repository.Get();
+          _itemList = Repository.Get();
         }
         return _itemList;
       }
@@ -65,42 +63,39 @@ namespace ND.PantryPlanner.ViewModelLayer.ViewModels
       }
     }
 
-    public Item Item
+    public Item ItemObject
     {
-      get
-      {
-        return _item;
-      }
+      get { return _itemObject; }
       set
       {
-        _item = value;
+        _itemObject = value;
         OnPropertyChanged();
       }
     }
 
     public ObservableCollection<Item> Get()
     {
-      if (_repository != null)
+      if (Repository != null)
       {
-        _itemList = new ObservableCollection<Item>(_repository.Get());
+        ItemList = new ObservableCollection<Item>(Repository.Get());
       }
 
-      return _itemList;
+      return ItemList;
     }
 
     public Item Get(int id)
     {
-      if (_repository != null)
+      if (Repository != null)
       {
-        Item = _repository.Get(id);
+        ItemObject = Repository.Get(id);
       }
 
-      return Item;
+      return ItemObject;
     }
 
     public virtual bool Save()
     {
-      return false;
+      return Repository.Add(ItemObject);
     }
 
     public ObservableCollection<string> GetItemTypes()

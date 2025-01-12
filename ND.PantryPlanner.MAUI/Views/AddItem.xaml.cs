@@ -4,21 +4,22 @@ namespace ND.PantryPlanner.MAUI.Views
 {
 	public partial class AddItem : ContentPage
 	{
-    private readonly ItemViewModelCommands _viewModel;
+    public ItemViewModelCommands ViewModel;
 
     public AddItem(ItemViewModelCommands viewModel)
 		{
       InitializeComponent();
 
-      BindingContext = new ItemViewModelCommands();
-      _viewModel = viewModel;
+      ViewModel = viewModel;
 		}
 
     protected override void OnAppearing()
     {
       base.OnAppearing();
-      _viewModel.Get();
-      _viewModel.GetItemTypes();
+
+      BindingContext = ViewModel;
+      ViewModel.Get();
+      ViewModel.GetItemTypes();
     }
   }
 }

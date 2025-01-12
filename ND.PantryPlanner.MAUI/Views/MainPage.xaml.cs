@@ -8,14 +8,14 @@ namespace ND.PantryPlanner.MAUI.Views
     /// <summary>
     /// The view model for the main page
     /// </summary>
-    private readonly ItemViewModelCommands _viewModel;
+    public ItemViewModelCommands ViewModel;
 
     public MainPage(ItemViewModelCommands viewModel)
     {
       InitializeComponent();
 
-      BindingContext = new ItemViewModelCommands();
-      _viewModel = viewModel;
+      //BindingContext = new ItemViewModelCommands();
+      ViewModel = viewModel;
     }
 
     /// <summary>
@@ -24,7 +24,10 @@ namespace ND.PantryPlanner.MAUI.Views
     protected override void OnAppearing()
     {
       base.OnAppearing();
-      _viewModel.Get();
+
+      BindingContext = ViewModel;
+      ViewModel.Get();
+      ViewModel.GetItemTypes();
     }
   }
 }

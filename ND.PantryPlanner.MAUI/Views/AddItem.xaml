@@ -11,7 +11,7 @@
 
   <VerticalStackLayout>
     <partial:HeaderView ViewTitle="Add new Item"
-                          ViewDescription="Use this screen to register a new item for your pantry." />
+                        ViewDescription="Use this screen to register a new item for your pantry." />
 
     <BoxView Margin="10,10,10,10"
              HeightRequest="1"
@@ -27,7 +27,7 @@
       <Entry Grid.Row="1"
              Margin="10,10,10,10"
              Grid.Column="1"
-             Text="" />
+             Text="{Binding ItemObject.Name}" />
       
       <Label Grid.Row="2"
              Margin="10,10,10,10"
@@ -35,7 +35,8 @@
              VerticalTextAlignment="Center"/>
       <Entry Grid.Row="2"
              Margin="10,10,10,10"
-             Grid.Column="1"/>
+             Grid.Column="1"
+             Text="{Binding ItemObject.Description}"/>
 
       <Label Grid.Row="3"
              Margin="10,10,10,10"
@@ -45,7 +46,7 @@
               Margin="10,10,10,10"
               Grid.Column="1"
               ItemsSource="{Binding ItemTypesList}"
-              SelectedItem="{Binding Item.ItemType}">
+              SelectedItem="{Binding ItemObject.ItemType}">
       </Picker>
 
       <HorizontalStackLayout Grid.Row="4"
@@ -55,13 +56,15 @@
                 FontAttributes="Bold"
                 Margin="10,10,10,10"
                 WidthRequest="100"
-                HorizontalOptions="Start"/>
+                HorizontalOptions="Start"
+                Command="{Binding Source={x:Reference AddItemView}, Path=BindingContext.SaveItemCommand}"/>
         <Button Text="Cancel" 
                 FontAutoScalingEnabled="True"
                 FontAttributes="Bold"
                 Margin="10,10,10,10"
                 WidthRequest="100"
-                HorizontalOptions="End"/>
+                HorizontalOptions="End"
+                Command="{Binding Source={x:Reference AddItemView}, Path=BindingContext.CancelCommand}"/>
       </HorizontalStackLayout>
     </Grid>
   </VerticalStackLayout>  

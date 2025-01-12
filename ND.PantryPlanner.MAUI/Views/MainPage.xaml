@@ -40,14 +40,16 @@
                      Text="{Binding Name}" />
                   </HorizontalStackLayout>
                   <HorizontalStackLayout>
-                    <Label Text="Description" />
-                    <Label Text="{Binding Description}" />
+                    <Label Text="{Binding Description}"
+                           Margin="0,10,10,10"/>
                   </HorizontalStackLayout>
                   <HorizontalStackLayout Margin="5,10,5,5">
                     <Button Text="Edit"
+                            Margin="0,10,10,10"
                             CommandParameter="{Binding Id}"
                             Command="{Binding Source={x:Reference MainPageView}, Path=BindingContext.ShowEditItemCommand}" />
-                    <Button Text="Delete" />
+                    <Button Text="Delete"
+                            Margin="0,10,10,10"/>
                   </HorizontalStackLayout>
                 </VerticalStackLayout>
               </Frame>
