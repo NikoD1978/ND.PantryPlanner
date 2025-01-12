@@ -20,13 +20,13 @@ namespace ND.PantryPlanner.MAUI.Commands
 
       // Create commands for this view
       //ShowAddItemCommand = new Command<int>(async (int id) => await ShowAddItemAsync(id), (id) => true);
-      ShowAddItemCommand = new Command<int>(async (int id) => await ShowAddItemAsync());
+      ShowAddItemCommand = new Command(async () => await ShowAddItemAsync());
     }
 
     /// <summary>
     /// Shows the Add Item page
     /// </summary>
-    protected async Task ShowAddItemAsync()//int id)
+    private async Task ShowAddItemAsync()//int id)
     {
       //await Shell.Current.GoToAsync($"{nameof(Views.AddItem)}?id={id}");
       await Shell.Current.GoToAsync($"{nameof(Views.AddItem)}");

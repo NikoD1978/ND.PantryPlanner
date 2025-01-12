@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ND.PantryPlanner.MAUI.Commands"
+             xmlns:model="clr-namespace:ND.PantryPlanner.ModelLayer.Models;assembly=ND.PantryPlanner.ModelLayer"
              x:Class="ND.PantryPlanner.MAUI.Views.AddItem"
-             Title="AddItem">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             x:DataType="vm:ItemViewModelCommands"
+             x:Name="AddItemView"
+             Title="Add Item">
+  <VerticalStackLayout>
+    <Label Text="Welcome to .NET MAUI!"
+           VerticalOptions="Center" 
+           HorizontalOptions="Center" />
+  </VerticalStackLayout>
 </ContentPage>

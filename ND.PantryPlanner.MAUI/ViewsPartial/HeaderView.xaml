@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ND.PantryPlanner.MAUI.ViewsPartial.HeaderView">
+
+  <HorizontalStackLayout>
+    <Grid RowDefinitions="Auto,Auto,Auto"
+          Margin="10,10,10,20">
+      <Label Grid.Row="0"
+             Text="{Binding ViewTitle}"
+             HorizontalOptions="StartAndExpand"
+             FontSize="Title" />
+      <Label Grid.Row="1"
+             Grid.ColumnSpan="2"
+             Text="{Binding ViewDescription}"
+             HorizontalOptions="StartAndExpand"
+             FontSize="Body" />
+    </Grid>
+  </HorizontalStackLayout>
+</ContentView>

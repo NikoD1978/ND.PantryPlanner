@@ -3,6 +3,7 @@
 using ND.PantryPlanner.Common.Interfaces;
 using ND.PantryPlanner.DataLayer.Initialization;
 using ND.PantryPlanner.DataLayer.Repositories;
+using ND.PantryPlanner.MAUI.Commands;
 using ND.PantryPlanner.MAUI.Views;
 using ND.PantryPlanner.ModelLayer.Models;
 using ND.PantryPlanner.ViewModelLayer.ViewModels;
@@ -37,13 +38,14 @@ namespace ND.PantryPlanner.MAUI
       builder.Services.AddTransient<IRepository<Item>, ItemRepository>();
 
       // DI Services (Commands)
-      builder.Services.AddSingleton<AddItem>();
+      builder.Services.AddSingleton<ItemViewModelCommands>();
 
       // DI Services (ViewModels)
       builder.Services.AddSingleton<ItemViewModel>();
 
       // DI Services (Views)
       builder.Services.AddTransient<MainPage>();
+      builder.Services.AddTransient<AddItem>();
 
       return builder.Build();
     }

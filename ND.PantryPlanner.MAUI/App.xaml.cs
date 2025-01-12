@@ -9,8 +9,6 @@ namespace ND.PantryPlanner.MAUI
       InitializeComponent();
 
       MainPage = new AppShell();
-
-      Routing.RegisterRoute(nameof(AddItem), typeof(AddItem));
     }
   }
 }

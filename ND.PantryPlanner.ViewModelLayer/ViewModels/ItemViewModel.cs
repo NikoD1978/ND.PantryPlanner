@@ -31,6 +31,7 @@ namespace ND.PantryPlanner.ViewModelLayer.ViewModels
 
     private readonly IRepository<Item> _repository;
     private ObservableCollection<Item> _itemList;
+    private Item _item;
 
     /// <summary>
     /// Gets the current list of items
@@ -55,6 +56,16 @@ namespace ND.PantryPlanner.ViewModelLayer.ViewModels
       }
 
       return _itemList;
+    }
+
+    public Item Get(int id)
+    {
+      if (_repository != null)
+      {
+        _item = _repository.Get(id);
+      }
+
+      return _item;
     }
   }
 }
