@@ -56,7 +56,7 @@
             Margin="10,10,10,10"
             WidthRequest="100"
             HorizontalOptions="Start"
-            Command="{Binding Source={x:Reference EditItemView}, Path=BindingContext.AddItemCommand}"/>
+            Command="{Binding Source={x:Reference EditItemView}, Path=BindingContext.UpdateItemCommand}"/>
         <Button Text="Cancel" 
             FontAutoScalingEnabled="True"
             FontAttributes="Bold"

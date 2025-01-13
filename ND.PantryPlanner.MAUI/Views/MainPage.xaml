@@ -20,49 +20,49 @@
                 HorizontalOptions="Start"
                 Command="{Binding Source={x:Reference MainPageView}, Path=BindingContext.ShowAddItemCommand}"/>
         <partial:HeaderView ViewTitle="Item List"
-                            ViewDescription="The list of items in your pantry."/>
+                            ViewDescription="List of items in your pantry."/>
       </HorizontalStackLayout>
       
       <BoxView Margin="0,0,0,10"
                HeightRequest="1"
                Color="Black" />
-      
-      <ListView Grid.Row="1"
-                ItemsSource="{Binding ItemList}">
-        <ListView.ItemTemplate>
+
+      <CollectionView ItemsSource="{Binding ItemList}">
+        <CollectionView.ItemTemplate>
           <DataTemplate x:DataType="model:Item">
-            <ViewCell>
-              <Frame Margin="8"
-                     Padding="12">
-                <VerticalStackLayout Spacing="4">
-                  <FlexLayout>
-                    <Label FontAttributes="Bold"
-                           FontSize="Title"
-                           LineBreakMode="WordWrap"
-                           Text="{Binding Name}" />
-                  </FlexLayout>
-                  <FlexLayout>
-                    <Label Text="{Binding Description}"
-                           LineBreakMode="WordWrap"
-                           Margin="0,10,10,0"/>
-                  </FlexLayout>
-                  <FlexLayout Margin="0,10,5,5">
-                    <Button Text="Edit"
-                            Margin="0,10,10,0"
-                            CommandParameter="{Binding Id}"
-                            Command="{Binding Source={x:Reference MainPageView}, Path=BindingContext.ShowEditItemCommand}" />
-                    <Button Text="Delete"
-                            Margin="0,10,10,0"
-                            CommandParameter="{Binding Id}"
-                            Command="{Binding Source={x:Reference MainPageView}, Path=BindingContext.DeleteItemCommand}"/>
-                  </FlexLayout>
-                </VerticalStackLayout>
-              </Frame>
-            </ViewCell>
+            <Border Margin="8"
+                    Padding="12"
+                    Stroke="Black"
+                    StrokeThickness="1"
+                    BackgroundColor="White"
+                    StrokeShape="RoundRectangle 12">
+              <VerticalStackLayout Spacing="2">
+                <HorizontalStackLayout>
+                  <Label FontAttributes="Bold"
+                               FontSize="Title"
+                               LineBreakMode="WordWrap"
+                               Text="{Binding Name}" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                  <Label Text="{Binding Description}"
+                               LineBreakMode="WordWrap"
+                               Margin="0,10,10,0"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Margin="0,10,5,5">
+                  <Button Text="Edit"
+                                Margin="0,10,10,0"
+                                CommandParameter="{Binding Id}"
+                                Command="{Binding Source={x:Reference MainPageView}, Path=BindingContext.ShowEditItemCommand}" />
+                  <Button Text="Delete"
+                                Margin="0,10,10,0"
+                                CommandParameter="{Binding Id}"
+                                Command="{Binding Source={x:Reference MainPageView}, Path=BindingContext.DeleteItemCommand}"/>
+                </HorizontalStackLayout>
+              </VerticalStackLayout>
+            </Border>
           </DataTemplate>
-        </ListView.ItemTemplate>
-      </ListView>
-      
+        </CollectionView.ItemTemplate>
+      </CollectionView>
     </VerticalStackLayout>
   </ScrollView>
 </ContentPage>
