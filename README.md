@@ -3,22 +3,24 @@
 This documentation is a work in progress, as is this project, and may not be complete. Also, GitHub Copilot was used to generate some of the content in this file. Copilot also served as code review partner for this project.
 
 ## Description
-ND.PantryPlanner is a .NET MAUI application designed to help users manage their pantry inventory efficiently. The app allows users to track the items in their pantry, set reminders for expiration dates, and generate shopping lists based on their inventory needs. With an intuitive interface and seamless cross-platform support, ND.PantryPlanner aims to simplify pantry management and reduce food waste.
+ND.PantryPlanner is a training exercise for me, to hone my skills at .NET MAUI development without the comfort of my employers' easy-to-use frameworks, toolkits and dialog designers.
+
+The application allows users to track the items in their pantry.
 
 ## Getting Started
-Instructions to get your project up and running.
+To get started with ND.PantryPlanner, follow these steps:
 
-### Prerequisites
-What things you need to install the software and how to install them.
-
-### Installation
-Step-by-step guide on how to install and set up the project.
+1. Clone the repository to your local machine using `git clone <repository-url>`.
+2. Open the solution file `ND.PantryPlanner.sln` in Visual Studio.
+3. Restore the NuGet packages by right-clicking on the solution and selecting "Restore NuGet Packages".
+4. Build the solution to ensure all dependencies are correctly installed.
+5. Deploy the application to your preferred device or emulator by selecting the target device and clicking the "Run" button in Visual Studio.
 
 ## Usage
-How to use the project.
+This project can be used as a template for building your own pantry management application. You can customize the features, design, and functionality to suit your needs.
 
 ## Contributing
-Guidelines for contributing to the project.
+Since this project is merely a training exercise, contributions are not accepted at this time.
 
 ## License
 This project is licensed under the GNU General Public License v3.0. You can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
