@@ -39,6 +39,7 @@ namespace ND.PantryPlanner.MAUI
       builder.Services.AddScoped<ItemViewModelCommands>();
       builder.Services.AddScoped<MainPage>();
       builder.Services.AddScoped<AddItem>();
+      builder.Services.AddScoped<EditItem>();
 
       return builder.Build();
     }

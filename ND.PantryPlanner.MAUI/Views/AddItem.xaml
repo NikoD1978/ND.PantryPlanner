@@ -46,8 +46,7 @@
               Margin="10,10,10,10"
               Grid.Column="1"
               ItemsSource="{Binding ItemTypesList}"
-              SelectedItem="{Binding ItemObject.ItemType}">
-      </Picker>
+              SelectedItem="{Binding ItemObject.ItemTypeString}"/>
 
       <HorizontalStackLayout Grid.Row="4"
                              Grid.Column="1">
@@ -57,7 +56,7 @@
                 Margin="10,10,10,10"
                 WidthRequest="100"
                 HorizontalOptions="Start"
-                Command="{Binding Source={x:Reference AddItemView}, Path=BindingContext.SaveItemCommand}"/>
+                Command="{Binding Source={x:Reference AddItemView}, Path=BindingContext.AddItemCommand}"/>
         <Button Text="Cancel" 
                 FontAutoScalingEnabled="True"
                 FontAttributes="Bold"

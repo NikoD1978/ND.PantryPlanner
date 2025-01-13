@@ -15,5 +15,56 @@
     <BoxView Margin="10,10,10,10"
              HeightRequest="1"
              Color="Black" />
+
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+      ColumnDefinitions="Auto,*">
+
+      <Label Grid.Row="1"
+         Margin="10,10,10,10"
+         Text="Name" 
+         VerticalTextAlignment="Center"/>
+      <Entry Grid.Row="1"
+         Margin="10,10,10,10"
+         Grid.Column="1"
+         Text="{Binding ItemObject.Name}" />
+
+      <Label Grid.Row="2"
+         Margin="10,10,10,10"
+         Text="Description" 
+         VerticalTextAlignment="Center"/>
+      <Entry Grid.Row="2"
+         Margin="10,10,10,10"
+         Grid.Column="1"
+         Text="{Binding ItemObject.Description}"/>
+
+      <Label Grid.Row="3"
+         Margin="10,10,10,10"
+         Text="Item Type" 
+         VerticalTextAlignment="Center"/>
+      <Picker Grid.Row="3"
+          Margin="10,10,10,10"
+          Grid.Column="1"
+          ItemsSource="{Binding ItemTypesList}"
+          SelectedItem="{Binding ItemObject.ItemType}">
+      </Picker>
+
+      <HorizontalStackLayout Grid.Row="4"
+                         Grid.Column="1">
+        <Button Text="Save" 
+            FontAutoScalingEnabled="True"
+            FontAttributes="Bold"
+            Margin="10,10,10,10"
+            WidthRequest="100"
+            HorizontalOptions="Start"
+            Command="{Binding Source={x:Reference EditItemView}, Path=BindingContext.AddItemCommand}"/>
+        <Button Text="Cancel" 
+            FontAutoScalingEnabled="True"
+            FontAttributes="Bold"
+            Margin="10,10,10,10"
+            WidthRequest="100"
+            HorizontalOptions="End"
+            Command="{Binding Source={x:Reference EditItemView}, Path=BindingContext.CancelCommand}"/>
+      </HorizontalStackLayout>
+    </Grid>
   </VerticalStackLayout>
 </ContentPage>

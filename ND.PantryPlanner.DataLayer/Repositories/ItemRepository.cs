@@ -56,7 +56,7 @@ namespace ND.PantryPlanner.DataLayer.Repositories
                 Quantity = reader.GetInt32(5),
                 ExpirationDate = reader.IsDBNull(6) ? (DateTime?)null : Convert.ToDateTime(reader.GetString(6)),
                 HasToBeRefrigerated = reader.GetBoolean(7),
-                ImagePath = reader.IsDBNull(8) ? null : reader.GetString(8),
+                ImagePath = reader.IsDBNull(8) ? string.Empty : reader.GetString(8),
               });
             }
           }
@@ -81,7 +81,56 @@ namespace ND.PantryPlanner.DataLayer.Repositories
     /// </summary>
     public Item? Get(int id)
     {
-      throw new NotImplementedException();
+      using (var connection = new SqliteConnection(Settings.ConnectionString))
+      {
+        connection.Open();
+        var command = connection.CreateCommand();
+        command.CommandText = @$"
+            SELECT  ITEM_NAME,
+                    ITEM_DESCRIPTION,
+                    ITEM_ITEM_TYPE,
+                    ITEM_LOCATION_TYPE,
+                    ITEM_QUANTITY,
+                    ITEM_EXPIRATION_DATE,
+                    ITEM_HAS_TO_BE_REFRIGERATED,
+                    ITEM_IMAGE_PATH
+            FROM ND_ITEMS
+              WHERE ITEM_ID = ${nameof(id)};";
+
+        command.Parameters.AddWithValue($"${nameof(id)}", id);
+
+        try
+        {
+          using (var reader = command.ExecuteReader())
+          {
+            if (reader.Read())
+            {
+              return new Item
+              {
+                Id = id,
+                Name = reader.GetString(0),
+                Description = reader.GetString(1),
+                ItemType = (ItemType)reader.GetInt32(2),
+                LocationType = (LocationType)reader.GetInt32(3),
+                Quantity = reader.GetInt32(4),
+                ExpirationDate = reader.IsDBNull(5) ? (DateTime?)null : Convert.ToDateTime(reader.GetString(5)),
+                HasToBeRefrigerated = reader.GetBoolean(6),
+                ImagePath = reader.IsDBNull(7) ? string.Empty : reader.GetString(7),
+              };
+            }
+          }
+        }
+        catch (SqliteException e)
+        {
+          Debug.WriteLine($"An error occurred: {e.Message}");
+          throw;
+        }
+        finally
+        {
+          connection.Close();
+        }
+        return null;
+      }
     }
 
     /// <summary>
@@ -115,17 +164,65 @@ namespace ND.PantryPlanner.DataLayer.Repositories
             ${nameof(item.ImagePath)}
           );";
 
-        command.Parameters.AddWithValue($"${nameof(item.Name)}", item.Name);
-        command.Parameters.AddWithValue($"${nameof(item.Description)}", item.Description);
-        command.Parameters.AddWithValue($"${nameof(item.ItemType)}", (int)item.ItemType);
-        command.Parameters.AddWithValue($"${nameof(item.LocationType)}", (int)item.LocationType);
-        command.Parameters.AddWithValue($"${nameof(item.Quantity)}", item.Quantity);
-        command.Parameters.AddWithValue($"${nameof(item.ExpirationDate)}", item.ExpirationDate?.ToString("yyyy-MM-dd") ?? (object)DBNull.Value);
-        command.Parameters.AddWithValue($"${nameof(item.HasToBeRefrigerated)}", item.HasToBeRefrigerated);
-        command.Parameters.AddWithValue($"${nameof(item.ImagePath)}", string.IsNullOrEmpty(item.ImagePath) ? DBNull.Value : item.ImagePath);
+        try
+        {
+          command.Parameters.AddWithValue($"${nameof(item.Name)}", item.Name);
+          command.Parameters.AddWithValue($"${nameof(item.Description)}", item.Description);
+          command.Parameters.AddWithValue($"${nameof(item.ItemType)}", (int)item.ItemType);
+          command.Parameters.AddWithValue($"${nameof(item.LocationType)}", (int)item.LocationType);
+          command.Parameters.AddWithValue($"${nameof(item.Quantity)}", item.Quantity);
+          command.Parameters.AddWithValue($"${nameof(item.ExpirationDate)}", DateTime.MinValue);
+          command.Parameters.AddWithValue($"${nameof(item.HasToBeRefrigerated)}", item.HasToBeRefrigerated);
+          command.Parameters.AddWithValue($"${nameof(item.ImagePath)}", string.IsNullOrEmpty(item.ImagePath) ? DBNull.Value : item.ImagePath);
+                  
+          command.ExecuteNonQuery();
+          return true;
+        }
+        catch (SqliteException e)
+        {
+          Debug.WriteLine($"An error occurred: {e.Message}");
+          return false;
+        }
+        finally
+        {
+          connection.Close();
+        }
+      }
+    }
+
+    /// <summary>
+    /// Updates an item in the database
+    /// </summary>
+    public bool Update(Item item)
+    {
+      using (var connection = new SqliteConnection(Settings.ConnectionString))
+      {
+        connection.Open();
+
+        var command = connection.CreateCommand();
+        command.CommandText = @$"
+          UPDATE ND_ITEMS 
+            SET ITEM_NAME = ${nameof(item.Name)},
+                ITEM_DESCRIPTION = ${nameof(item.Description)},
+                ITEM_ITEM_TYPE = ${nameof(item.ItemType)},
+                ITEM_LOCATION_TYPE = ${nameof(item.LocationType)},
+                ITEM_QUANTITY = ${nameof(item.Quantity)},
+                ITEM_EXPIRATION_DATE = ${nameof(item.ExpirationDate)},
+                ITEM_HAS_TO_BE_REFRIGERATED = ${nameof(item.HasToBeRefrigerated)},
+                ITEM_IMAGE_PATH = ${nameof(item.ImagePath)}
+            WHERE ITEM_ID = ${nameof(item.Id)};";
 
         try
         {
+          command.Parameters.AddWithValue($"${nameof(item.Name)}", item.Name);
+          command.Parameters.AddWithValue($"${nameof(item.Description)}", item.Description);
+          command.Parameters.AddWithValue($"${nameof(item.ItemType)}", (int)item.ItemType);
+          command.Parameters.AddWithValue($"${nameof(item.LocationType)}", (int)item.LocationType);
+          command.Parameters.AddWithValue($"${nameof(item.Quantity)}", item.Quantity);
+          command.Parameters.AddWithValue($"${nameof(item.ExpirationDate)}", item.ExpirationDate?.ToString("yyyy-MM-dd") ?? (object)DBNull.Value);
+          command.Parameters.AddWithValue($"${nameof(item.HasToBeRefrigerated)}", item.HasToBeRefrigerated);
+          command.Parameters.AddWithValue($"${nameof(item.ImagePath)}", string.IsNullOrEmpty(item.ImagePath) ? DBNull.Value : item.ImagePath);
+
           command.ExecuteNonQuery();
           return true;
         }
@@ -153,10 +250,10 @@ namespace ND.PantryPlanner.DataLayer.Repositories
         var command = connection.CreateCommand();
         command.CommandText = $"DELETE FROM ND_ITEMS WHERE ITEM_ID = ${nameof(id)};";
 
-        command.Parameters.AddWithValue($"${nameof(id)}", id);
-
         try
         {
+          command.Parameters.AddWithValue($"${nameof(id)}", id);
+        
           command.ExecuteNonQuery();
           return true;
         }

@@ -6,11 +6,12 @@
              xmlns:partial="clr-namespace:ND.PantryPlanner.MAUI.ViewsPartial"
              x:Class="ND.PantryPlanner.MAUI.Views.MainPage"
              x:DataType="vm:ItemViewModelCommands"
-             x:Name="MainPageView">
+             x:Name="MainPageView"
+             Title="ND.PantryPlanner">
 
   <ScrollView>
     <VerticalStackLayout>
-      
+
       <HorizontalStackLayout>
         <Button Text="Add Item"
                 FontAutoScalingEnabled="True"
@@ -19,7 +20,7 @@
                 HorizontalOptions="Start"
                 Command="{Binding Source={x:Reference MainPageView}, Path=BindingContext.ShowAddItemCommand}"/>
         <partial:HeaderView ViewTitle="Item List"
-                            ViewDescription="The list of items in your pantry." />
+                            ViewDescription="The list of items in your pantry."/>
       </HorizontalStackLayout>
       
       <BoxView Margin="0,0,0,10"
@@ -34,16 +35,18 @@
               <Frame Margin="8"
                      Padding="12">
                 <VerticalStackLayout Spacing="4">
-                  <HorizontalStackLayout>
+                  <FlexLayout>
                     <Label FontAttributes="Bold"
-                     FontSize="Title"
-                     Text="{Binding Name}" />
-                  </HorizontalStackLayout>
-                  <HorizontalStackLayout>
+                           FontSize="Title"
+                           LineBreakMode="WordWrap"
+                           Text="{Binding Name}" />
+                  </FlexLayout>
+                  <FlexLayout>
                     <Label Text="{Binding Description}"
+                           LineBreakMode="WordWrap"
                            Margin="0,10,10,0"/>
-                  </HorizontalStackLayout>
-                  <HorizontalStackLayout Margin="0,10,5,5">
+                  </FlexLayout>
+                  <FlexLayout Margin="0,10,5,5">
                     <Button Text="Edit"
                             Margin="0,10,10,0"
                             CommandParameter="{Binding Id}"
@@ -52,7 +55,7 @@
                             Margin="0,10,10,0"
                             CommandParameter="{Binding Id}"
                             Command="{Binding Source={x:Reference MainPageView}, Path=BindingContext.DeleteItemCommand}"/>
-                  </HorizontalStackLayout>
+                  </FlexLayout>
                 </VerticalStackLayout>
               </Frame>
             </ViewCell>

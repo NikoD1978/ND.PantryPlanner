@@ -81,6 +81,24 @@ namespace ND.PantryPlanner.ModelLayer.Models
       }
     }
 
+    public string ItemTypeString
+    {
+      get 
+      {
+        return ItemType.ToString(); 
+      }
+      set
+      {
+        if (value == null)
+        {
+          value = "None";
+        }
+
+        ItemType = (ItemType)Enum.Parse(typeof(ItemType), value);
+        OnPropertyChanged();
+      }
+    }
+
     /// <summary>
     /// The location type of the item. Valid values are defined in the LocationType enum.
     /// </summary>

@@ -106,11 +106,21 @@ namespace ND.PantryPlanner.ViewModelLayer.ViewModels
     }
 
     /// <summary>
-    /// Saves the current item object
+    /// Adds the current item object
     /// </summary>
-    public virtual bool Save()
+    public virtual bool AddCurrentItem()
     {
+      //ItemObject.ItemType = ItemTypePicker.
+
       return Repository.Add(ItemObject);
+    }
+
+    /// <summary>
+    /// Updates the current item object
+    /// </summary>
+    public virtual bool UpdateCurrentItem()
+    {
+      return Repository.Update(ItemObject);
     }
 
     /// <summary>

@@ -14,7 +14,8 @@ namespace ND.PantryPlanner.MAUI.Commands
 
     public ICommand ShowAddItemCommand { get; private set; }
     public ICommand ShowEditItemCommand { get; private set; }
-    public ICommand SaveItemCommand { get; private set; }
+    public ICommand AddItemCommand { get; private set; }
+    public ICommand UpdateItemCommand { get; private set; }
     public ICommand DeleteItemCommand { get; private set; }
     public ICommand CancelCommand { get; private set; }
 
@@ -29,7 +30,8 @@ namespace ND.PantryPlanner.MAUI.Commands
       // Create commands for this view
       ShowAddItemCommand = new Command(async () => await ShowAddItemAsync());
       ShowEditItemCommand = new Command<int>(async (int id) => await ShowEditItemAsync(id), (id) => true);
-      SaveItemCommand = new Command(async () => await SaveItemAsync());
+      AddItemCommand = new Command(async () => await AddItemAsync());
+      UpdateItemCommand = new Command(async () => await UpdateItemAsync());
       DeleteItemCommand = new Command<int>(async (int id) => await DeleteItemAsync(id), (id) => true);
       CancelCommand = new Command(async () => await CancelAsync());
     }
@@ -40,6 +42,7 @@ namespace ND.PantryPlanner.MAUI.Commands
     public async Task ShowAddItemAsync()
     {
       ItemObject = new Item();
+      ItemObject.ItemTypeString = ItemTypesList[0];
 
       await Shell.Current.GoToAsync($"{nameof(Views.AddItem)}");
     }
@@ -53,15 +56,38 @@ namespace ND.PantryPlanner.MAUI.Commands
     }
 
     /// <summary>
-    /// Saves the item to the repository
+    /// Adds the current item to the repository
     /// </summary>
-    public async Task<bool> SaveItemAsync()
+    public async Task<bool> AddItemAsync()
     {
-      var result = base.Save();
+      var result = base.AddCurrentItem();
 
       if (result)
       {
-        await Shell.Current.GoToAsync("..");
+        await Shell.Current.GoToAsync("../..");
+      }
+      else
+      {
+        await Application.Current.MainPage.DisplayAlert("Error", "Failed to add the item.", "OK");
+      }
+
+      return result;
+    }
+
+    /// <summary>
+    /// Updates the current item in the repository
+    /// </summary>
+    public async Task<bool> UpdateItemAsync()
+    {
+      var result = base.UpdateCurrentItem();
+      
+      if (result)
+      {
+        await Shell.Current.GoToAsync("../..");
+      }
+      else
+      {
+        await Application.Current.MainPage.DisplayAlert("Error", "Failed to update the item.", "OK");
       }
 
       return result;
@@ -72,11 +98,11 @@ namespace ND.PantryPlanner.MAUI.Commands
     /// </summary>
     public async Task CancelAsync()
     {
-      await Shell.Current.GoToAsync("..");
+      await Shell.Current.GoToAsync("../..");
     }
 
     /// <summary>
-    /// Deletes the item from the repository
+    /// Deletes the item with this ID from the repository
     /// </summary>
     public async Task DeleteItemAsync(int id)
     {
@@ -87,7 +113,7 @@ namespace ND.PantryPlanner.MAUI.Commands
         {
           // Send a message to notify that the item has been deleted
           MessagingCenter.Send(this, "ItemDeleted");
-          await Shell.Current.GoToAsync("..");
+          await Shell.Current.GoToAsync("../..");
         }
         else
         {
