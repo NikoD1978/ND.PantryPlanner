@@ -56,6 +56,8 @@ namespace ND.PantryPlanner.MAUI.Commands
     /// </summary>
     public async Task ShowEditItemAsync(int id)
     {
+      ItemObject = Get(id);
+
       await Shell.Current.GoToAsync($"{nameof(Views.EditItem)}?id={id}");
     }
 
