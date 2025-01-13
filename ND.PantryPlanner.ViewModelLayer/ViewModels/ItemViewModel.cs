@@ -28,7 +28,15 @@ namespace ND.PantryPlanner.ViewModelLayer.ViewModels
       _itemList = new ObservableCollection<Item>();
     }
 
+    public ItemViewModel(IRepository<Item> repository, IRepository<string> itemTypeRepository) : base()
+    {
+      Repository = repository;
+      ItemTypeRepository = itemTypeRepository;
+      _itemList = new ObservableCollection<Item>();
+    }
+
     private readonly IRepository<Item> Repository;
+    private readonly IRepository<string> ItemTypeRepository;
     private ObservableCollection<Item> _itemList;
     private ObservableCollection<string> _itemTypesList = new();
     private Item _itemObject;
@@ -136,13 +144,17 @@ namespace ND.PantryPlanner.ViewModelLayer.ViewModels
     /// </summary>
     public ObservableCollection<string> GetItemTypes()
     {
-      ItemTypesList = new ObservableCollection<string>();
+      //ItemTypesList = new ObservableCollection<string>();
 
-      foreach (var itemType in Enum.GetValues(typeof(ItemType)))
-      {
-        ItemTypesList.Add(itemType.ToString());
-      }
+      //foreach (var itemType in Enum.GetValues(typeof(ItemType)))
+      //{
+      //  ItemTypesList.Add(itemType.ToString());
+      //}
 
+      //return ItemTypesList;
+      //return ItemTypeRepository.Get();
+
+      ItemTypesList = ItemTypeRepository.Get();
       return ItemTypesList;
     }
   }

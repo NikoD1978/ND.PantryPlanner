@@ -222,6 +222,7 @@ namespace ND.PantryPlanner.DataLayer.Repositories
           command.Parameters.AddWithValue($"${nameof(item.ExpirationDate)}", item.ExpirationDate?.ToString("yyyy-MM-dd") ?? (object)DBNull.Value);
           command.Parameters.AddWithValue($"${nameof(item.HasToBeRefrigerated)}", item.HasToBeRefrigerated);
           command.Parameters.AddWithValue($"${nameof(item.ImagePath)}", string.IsNullOrEmpty(item.ImagePath) ? DBNull.Value : item.ImagePath);
+          command.Parameters.AddWithValue($"${nameof(item.Id)}", item.Id);
 
           command.ExecuteNonQuery();
           return true;

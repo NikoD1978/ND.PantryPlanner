@@ -5,6 +5,7 @@ using ND.PantryPlanner.DataLayer.Initialization;
 using ND.PantryPlanner.DataLayer.Repositories;
 using ND.PantryPlanner.MAUI.Commands;
 using ND.PantryPlanner.MAUI.Views;
+using ND.PantryPlanner.ModelLayer.Enums;
 using ND.PantryPlanner.ModelLayer.Models;
 using ND.PantryPlanner.ViewModelLayer.ViewModels;
 
@@ -36,6 +37,7 @@ namespace ND.PantryPlanner.MAUI
 
       // DI Services
       builder.Services.AddScoped<IRepository<Item>, ItemRepository>();
+      builder.Services.AddScoped<IRepository<string>, ItemTypeRepository>();
       builder.Services.AddScoped<ItemViewModelCommands>();
       builder.Services.AddScoped<MainPage>();
       builder.Services.AddScoped<AddItem>();

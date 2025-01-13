@@ -1,6 +1,9 @@
-﻿using System.Windows.Input;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows.Input;
 
 using ND.PantryPlanner.Common.Interfaces;
+using ND.PantryPlanner.DataLayer.Repositories;
 using ND.PantryPlanner.ModelLayer.Models;
 using ND.PantryPlanner.ViewModelLayer.ViewModels;
 
@@ -11,6 +14,8 @@ namespace ND.PantryPlanner.MAUI.Commands
     public ItemViewModelCommands() : base() => Init();
 
     public ItemViewModelCommands(IRepository<Item> repository) : base(repository) => Init();
+
+    public ItemViewModelCommands(IRepository<Item> repository, IRepository<string> itemTypeRepository) : base(repository, itemTypeRepository) => Init();
 
     public ICommand ShowAddItemCommand { get; private set; }
     public ICommand ShowEditItemCommand { get; private set; }
@@ -25,7 +30,6 @@ namespace ND.PantryPlanner.MAUI.Commands
     public override void Init()
     {
       base.Init();
-      GetItemTypes();
       
       // Create commands for this view
       ShowAddItemCommand = new Command(async () => await ShowAddItemAsync());
@@ -111,9 +115,8 @@ namespace ND.PantryPlanner.MAUI.Commands
       {
         if (base.Delete(id))
         {
-          // Send a message to notify that the item has been deleted
-          MessagingCenter.Send(this, "ItemDeleted");
-          await Shell.Current.GoToAsync("../..");
+          Get();
+          await Shell.Current.GoToAsync("..");
         }
         else
         {
