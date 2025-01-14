@@ -45,8 +45,14 @@
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
                   <Label Text="{Binding Description}"
-                               LineBreakMode="WordWrap"
-                               Margin="0,10,10,0"/>
+                         FontSize="Micro"
+                         LineBreakMode="WordWrap"
+                         Margin="0,10,10,0"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                  <Label Text="{Binding Quantity}"
+                         FontSize="Micro"
+                         Margin="0,10,10,0"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Margin="0,10,5,5">
                   <Button Text="Edit"
