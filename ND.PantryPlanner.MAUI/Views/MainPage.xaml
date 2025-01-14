@@ -4,23 +4,24 @@
              xmlns:vm="clr-namespace:ND.PantryPlanner.MAUI.Commands"
              xmlns:model="clr-namespace:ND.PantryPlanner.ModelLayer.Models;assembly=ND.PantryPlanner.ModelLayer"
              xmlns:partial="clr-namespace:ND.PantryPlanner.MAUI.ViewsPartial"
+             xmlns:local="clr-namespace:ND.PantryPlanner.MAUI.Resources.Localization"
              x:Class="ND.PantryPlanner.MAUI.Views.MainPage"
              x:DataType="vm:ItemViewModelCommands"
              x:Name="MainPageView"
-             Title="ND.PantryPlanner">
+             Title="{x:Static local:AppResources.MainPageTitle}">
 
   <ScrollView>
     <VerticalStackLayout>
 
       <HorizontalStackLayout>
-        <Button Text="Add Item"
+        <Button Text="{x:Static local:AppResources.AddItemButtonText}"
                 FontAutoScalingEnabled="True"
                 FontAttributes="Bold"
                 Margin="10,10,10,10"
                 HorizontalOptions="Start"
                 Command="{Binding Source={x:Reference MainPageView}, Path=BindingContext.ShowAddItemCommand}"/>
-        <partial:HeaderView ViewTitle="Item List"
-                            ViewDescription="List of items in your pantry."/>
+        <partial:HeaderView ViewTitle="{x:Static local:AppResources.ViewTitle}"
+                            ViewDescription="{x:Static local:AppResources.ViewDescription}"/>
       </HorizontalStackLayout>
       
       <BoxView Margin="0,0,0,10"
@@ -55,11 +56,11 @@
                          Margin="0,10,10,0"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Margin="0,10,5,5">
-                  <Button Text="Edit"
+                  <Button Text="{x:Static local:AppResources.EditButtonText}"
                                 Margin="0,10,10,0"
                                 CommandParameter="{Binding Id}"
                                 Command="{Binding Source={x:Reference MainPageView}, Path=BindingContext.ShowEditItemCommand}" />
-                  <Button Text="Delete"
+                  <Button Text="{x:Static local:AppResources.DeleteButtonText}"
                                 Margin="0,10,10,0"
                                 CommandParameter="{Binding Id}"
                                 Command="{Binding Source={x:Reference MainPageView}, Path=BindingContext.DeleteItemCommand}"/>
