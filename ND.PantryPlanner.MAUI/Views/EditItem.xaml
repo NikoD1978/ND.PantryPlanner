@@ -8,6 +8,7 @@
              x:DataType="vm:ItemViewModelCommands"
              x:Name="EditItemView"
              Title="Edit Item">
+  
   <VerticalStackLayout>
     <partial:HeaderView ViewTitle="Modify Item"
                         ViewDescription="Use this screen to modify an existing item from your pantry." />
@@ -16,54 +17,65 @@
              HeightRequest="1"
              Color="Black" />
 
-    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto"
-      ColumnDefinitions="Auto,*">
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+          ColumnDefinitions="Auto,*">
 
       <Label Grid.Row="1"
-         Margin="10,10,10,10"
-         Text="Name" 
-         VerticalTextAlignment="Center"/>
+             Margin="10,10,10,10"
+             Text="Name" 
+             VerticalTextAlignment="Center"/>
       <Entry Grid.Row="1"
-         Margin="10,10,10,10"
-         Grid.Column="1"
-         Text="{Binding ItemObject.Name}" />
+             Grid.Column="1"
+             Margin="10,10,10,10"
+             Text="{Binding ItemObject.Name}" />
 
       <Label Grid.Row="2"
-         Margin="10,10,10,10"
-         Text="Description" 
-         VerticalTextAlignment="Center"/>
+             Margin="10,10,10,10"
+             Text="Description" 
+             VerticalTextAlignment="Center"/>
       <Entry Grid.Row="2"
-         Margin="10,10,10,10"
-         Grid.Column="1"
-         Text="{Binding ItemObject.Description}"/>
+             Margin="10,10,10,10"
+             Grid.Column="1"
+             Text="{Binding ItemObject.Description}"/>
 
       <Label Grid.Row="3"
-         Margin="10,10,10,10"
-         Text="Item Type" 
-         VerticalTextAlignment="Center"/>
-      <Picker Grid.Row="3"
-          Margin="10,10,10,10"
-          Grid.Column="1"
-          ItemsSource="{Binding ItemTypesList}"
-          SelectedItem="{Binding ItemObject.ItemTypeString}">
+             Margin="10,10,10,10"
+             Text="Quantity" 
+             VerticalTextAlignment="Center"/>
+      <Entry Grid.Row="3"
+             Margin="10,10,10,10"
+             Grid.Column="1"
+             Keyboard="Numeric"
+             Text="{Binding ItemObject.Quantity}" />
+
+      <Label Grid.Row="4"
+             Margin="10,10,10,10"
+             Text="Item Type" 
+             VerticalTextAlignment="Center"/>
+      <Picker Grid.Row="4"
+              Margin="10,10,10,10"
+              Grid.Column="1"
+              ItemsSource="{Binding ItemTypesList}"
+              SelectedItem="{Binding ItemObject.ItemTypeString}">
       </Picker>
 
-      <HorizontalStackLayout Grid.Row="4"
-                         Grid.Column="1">
+      <HorizontalStackLayout Grid.Row="5"
+                             Grid.Column="1">
         <Button Text="Save" 
-            FontAutoScalingEnabled="True"
-            FontAttributes="Bold"
-            Margin="10,10,10,10"
-            WidthRequest="100"
-            HorizontalOptions="Start"
-            Command="{Binding Source={x:Reference EditItemView}, Path=BindingContext.UpdateItemCommand}"/>
+                FontAutoScalingEnabled="True"
+                FontAttributes="Bold"
+                Margin="10,10,10,10"
+                WidthRequest="100"
+                HorizontalOptions="Start"
+                Command="{Binding Source={x:Reference EditItemView}, Path=BindingContext.UpdateItemCommand}"
+                IsEnabled="{Binding IsSaveButtonEnabled}"/>
         <Button Text="Cancel" 
-            FontAutoScalingEnabled="True"
-            FontAttributes="Bold"
-            Margin="10,10,10,10"
-            WidthRequest="100"
-            HorizontalOptions="End"
-            Command="{Binding Source={x:Reference EditItemView}, Path=BindingContext.CancelCommand}"/>
+                FontAutoScalingEnabled="True"
+                FontAttributes="Bold"
+                Margin="10,10,10,10"
+                WidthRequest="100"
+                HorizontalOptions="End"
+                Command="{Binding Source={x:Reference EditItemView}, Path=BindingContext.CancelCommand}"/>
       </HorizontalStackLayout>
     </Grid>
   </VerticalStackLayout>

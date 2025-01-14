@@ -8,6 +8,8 @@ namespace ND.PantryPlanner.MAUI
     {
       InitializeComponent();
 
+      Application.Current.UserAppTheme = AppTheme.Light;
+
       MainPage = new AppShell();
     }
   }
