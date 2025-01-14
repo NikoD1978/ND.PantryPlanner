@@ -113,11 +113,7 @@ namespace ND.PantryPlanner.MAUI.Commands
     public async Task ShowEditItemAsync(int id)
     {
       ItemObject = Get(id);
-
-      ItemObject.OnPropertyChanged(nameof(ItemObject.Name));
-      ItemObject.OnPropertyChanged(nameof(ItemObject.Description));
-      ItemObject.OnPropertyChanged(nameof(ItemObject.ItemType));
-      ItemObject.OnPropertyChanged(nameof(ItemObject.Quantity));
+      IsSaveButtonEnabled = true;
 
       ItemObject.PropertyChanged += ItemObject_PropertyChanged;
 
