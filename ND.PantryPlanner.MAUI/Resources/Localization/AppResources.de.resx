@@ -120,19 +120,61 @@
   <data name="AddItemButtonText" xml:space="preserve">
     <value>Hinzufügen</value>
   </data>
+  <data name="AddItemPageTitle" xml:space="preserve">
+    <value>Artikel hinzufügen</value>
+  </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>Abbruch</value>
+  </data>
   <data name="DeleteButtonText" xml:space="preserve">
     <value>Löschen</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Beschreibung</value>
   </data>
   <data name="EditButtonText" xml:space="preserve">
     <value>Ändern</value>
   </data>
+  <data name="EditItemPageTitle" xml:space="preserve">
+    <value>Artikel ändern</value>
+  </data>
+  <data name="ExpirationDate" xml:space="preserve">
+    <value>Ablaufdatum</value>
+  </data>
+  <data name="HasExpirationDate" xml:space="preserve">
+    <value>Läuft ab</value>
+  </data>
+  <data name="ItemType" xml:space="preserve">
+    <value>Artikeltyp</value>
+  </data>
   <data name="MainPageTitle" xml:space="preserve">
     <value>ND.PantryPlanner</value>
   </data>
-  <data name="ViewDescription" xml:space="preserve">
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Anzahl</value>
+  </data>
+  <data name="SaveButton" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
+  <data name="ViewDescriptionAddItem" xml:space="preserve">
+    <value>Verwenden Sie diesen Dialog um einen neuen Artikel zu Ihrem Vorrat hinzuzufügen.</value>
+  </data>
+  <data name="ViewDescriptionMain" xml:space="preserve">
     <value>Liste der Artikel auf Vorrat.</value>
   </data>
-  <data name="ViewTitle" xml:space="preserve">
+  <data name="ViewDescriptionModifyItem" xml:space="preserve">
+    <value>Verwenden Sie diesen Dialog um einen existierenden Artikel aus Ihrem Vorrat zu ändern.</value>
+  </data>
+  <data name="ViewTitleAddItem" xml:space="preserve">
+    <value>Artikel hinzufügen</value>
+  </data>
+  <data name="ViewTitleMain" xml:space="preserve">
     <value>Artikelliste</value>
+  </data>
+  <data name="ViewTitleModifyItem" xml:space="preserve">
+    <value>Artikel ändern</value>
   </data>
 </root>

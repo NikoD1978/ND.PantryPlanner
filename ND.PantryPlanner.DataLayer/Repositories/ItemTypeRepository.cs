@@ -16,6 +16,8 @@ namespace ND.PantryPlanner.DataLayer.Repositories
     {
       var itemTypesList = new ObservableCollection<string>();
 
+      // Currently forcing the english enum to be used
+      // TODO: Find a way to localize this
       foreach (var itemType in Enum.GetValues(typeof(ItemType)))
       {
         itemTypesList.Add(itemType.ToString());

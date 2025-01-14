@@ -16,6 +16,8 @@
            Text="{Binding ViewDescription}"
            HorizontalOptions="Start"
            LineBreakMode="WordWrap"
-           FontSize="Body"/>
+           MaximumWidthRequest="355"
+           FontSize="Body"
+           />
   </Grid>
 </ContentView>

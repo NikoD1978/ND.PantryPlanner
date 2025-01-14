@@ -40,7 +40,11 @@
 		<NeutralLanguage>en</NeutralLanguage>
 	</PropertyGroup>
 
-	<ItemGroup>
+  <ItemGroup Condition="$(TargetFramework.Contains('-android'))">
+    <AndroidResource Include="Platforms\Android\Resources\**" TargetPath="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 

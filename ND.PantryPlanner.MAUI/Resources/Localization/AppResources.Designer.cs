@@ -70,11 +70,38 @@ namespace ND.PantryPlanner.MAUI.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Item.
+        /// </summary>
+        internal static string AddItemPageTitle {
+            get {
+                return ResourceManager.GetString("AddItemPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string CancelButton {
+            get {
+                return ResourceManager.GetString("CancelButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         internal static string DeleteButtonText {
             get {
                 return ResourceManager.GetString("DeleteButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        internal static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
             }
         }
         
@@ -88,6 +115,42 @@ namespace ND.PantryPlanner.MAUI.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Item.
+        /// </summary>
+        internal static string EditItemPageTitle {
+            get {
+                return ResourceManager.GetString("EditItemPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expiration Date.
+        /// </summary>
+        internal static string ExpirationDate {
+            get {
+                return ResourceManager.GetString("ExpirationDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Has Expiration Date.
+        /// </summary>
+        internal static string HasExpirationDate {
+            get {
+                return ResourceManager.GetString("HasExpirationDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item Type.
+        /// </summary>
+        internal static string ItemType {
+            get {
+                return ResourceManager.GetString("ItemType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ND.PantryPlanner.
         /// </summary>
         internal static string MainPageTitle {
@@ -97,20 +160,83 @@ namespace ND.PantryPlanner.MAUI.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantity.
+        /// </summary>
+        internal static string Quantity {
+            get {
+                return ResourceManager.GetString("Quantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string SaveButton {
+            get {
+                return ResourceManager.GetString("SaveButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use this screen to register a new item for your pantry..
+        /// </summary>
+        internal static string ViewDescriptionAddItem {
+            get {
+                return ResourceManager.GetString("ViewDescriptionAddItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to List of items in your pantry..
         /// </summary>
-        internal static string ViewDescription {
+        internal static string ViewDescriptionMain {
             get {
-                return ResourceManager.GetString("ViewDescription", resourceCulture);
+                return ResourceManager.GetString("ViewDescriptionMain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use this screen to modify an existing item from your pantry..
+        /// </summary>
+        internal static string ViewDescriptionModifyItem {
+            get {
+                return ResourceManager.GetString("ViewDescriptionModifyItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new item.
+        /// </summary>
+        internal static string ViewTitleAddItem {
+            get {
+                return ResourceManager.GetString("ViewTitleAddItem", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Item List.
         /// </summary>
-        internal static string ViewTitle {
+        internal static string ViewTitleMain {
             get {
-                return ResourceManager.GetString("ViewTitle", resourceCulture);
+                return ResourceManager.GetString("ViewTitleMain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modify Item.
+        /// </summary>
+        internal static string ViewTitleModifyItem {
+            get {
+                return ResourceManager.GetString("ViewTitleModifyItem", resourceCulture);
             }
         }
     }

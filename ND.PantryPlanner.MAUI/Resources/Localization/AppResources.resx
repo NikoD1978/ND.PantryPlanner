@@ -120,19 +120,61 @@
   <data name="AddItemButtonText" xml:space="preserve">
     <value>Add Item</value>
   </data>
+  <data name="AddItemPageTitle" xml:space="preserve">
+    <value>Add Item</value>
+  </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="DeleteButtonText" xml:space="preserve">
     <value>Delete</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
   </data>
   <data name="EditButtonText" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="EditItemPageTitle" xml:space="preserve">
+    <value>Edit Item</value>
+  </data>
+  <data name="ExpirationDate" xml:space="preserve">
+    <value>Expiration Date</value>
+  </data>
+  <data name="HasExpirationDate" xml:space="preserve">
+    <value>Has Expiration Date</value>
+  </data>
+  <data name="ItemType" xml:space="preserve">
+    <value>Item Type</value>
+  </data>
   <data name="MainPageTitle" xml:space="preserve">
     <value>ND.PantryPlanner</value>
   </data>
-  <data name="ViewDescription" xml:space="preserve">
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="SaveButton" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="ViewDescriptionAddItem" xml:space="preserve">
+    <value>Use this screen to register a new item for your pantry.</value>
+  </data>
+  <data name="ViewDescriptionMain" xml:space="preserve">
     <value>List of items in your pantry.</value>
   </data>
-  <data name="ViewTitle" xml:space="preserve">
+  <data name="ViewDescriptionModifyItem" xml:space="preserve">
+    <value>Use this screen to modify an existing item from your pantry.</value>
+  </data>
+  <data name="ViewTitleAddItem" xml:space="preserve">
+    <value>Add new item</value>
+  </data>
+  <data name="ViewTitleMain" xml:space="preserve">
     <value>Item List</value>
+  </data>
+  <data name="ViewTitleModifyItem" xml:space="preserve">
+    <value>Modify Item</value>
   </data>
 </root>
