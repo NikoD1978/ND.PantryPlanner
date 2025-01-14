@@ -4,11 +4,16 @@
              xmlns:vm="clr-namespace:ND.PantryPlanner.MAUI.Commands"
              xmlns:model="clr-namespace:ND.PantryPlanner.ModelLayer.Models;assembly=ND.PantryPlanner.ModelLayer"
              xmlns:partial="clr-namespace:ND.PantryPlanner.MAUI.ViewsPartial"
+             xmlns:converters="clr-namespace:ND.PantryPlanner.MAUI.Converters"
              x:Class="ND.PantryPlanner.MAUI.Views.EditItem"
              x:DataType="vm:ItemViewModelCommands"
              x:Name="EditItemView"
              Title="Edit Item">
-  
+
+  <ContentPage.Resources>
+    <converters:InvertedBoolConverter x:Key="invertedBoolean" />
+  </ContentPage.Resources>
+
   <VerticalStackLayout>
     <partial:HeaderView ViewTitle="Modify Item"
                         ViewDescription="Use this screen to modify an existing item from your pantry." />
@@ -17,7 +22,7 @@
              HeightRequest="1"
              Color="Black" />
 
-    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
           ColumnDefinitions="Auto,*">
 
       <Label Grid.Row="1"
@@ -50,16 +55,35 @@
 
       <Label Grid.Row="4"
              Margin="10,10,10,10"
+             Text="Has Expiration Date" 
+             VerticalTextAlignment="Center"/>
+      <Switch Grid.Row="4"
+             Margin="10,10,10,10"
+             Grid.Column="1"
+             IsToggled="{Binding ItemObject.HasExpirationDate}" />
+
+      <Label Grid.Row="5"
+             Margin="10,10,10,10"
+             Text="Expiration Date"
+             VerticalTextAlignment="Center"/>
+      <DatePicker Grid.Row="5"
+                  Margin="10,10,10,10"
+                  Grid.Column="1"
+                  IsEnabled="{Binding ItemObject.HasExpirationDate, Converter={StaticResource invertedBoolean}}"
+                  Date="{Binding ItemObject.ExpirationDate}"/>
+
+      <Label Grid.Row="6"
+             Margin="10,10,10,10"
              Text="Item Type" 
              VerticalTextAlignment="Center"/>
-      <Picker Grid.Row="4"
+      <Picker Grid.Row="6"
               Margin="10,10,10,10"
               Grid.Column="1"
               ItemsSource="{Binding ItemTypesList}"
               SelectedItem="{Binding ItemObject.ItemTypeString}">
       </Picker>
 
-      <HorizontalStackLayout Grid.Row="5"
+      <HorizontalStackLayout Grid.Row="7"
                              Grid.Column="1">
         <Button Text="Save" 
                 FontAutoScalingEnabled="True"
@@ -67,8 +91,7 @@
                 Margin="10,10,10,10"
                 WidthRequest="100"
                 HorizontalOptions="Start"
-                Command="{Binding Source={x:Reference EditItemView}, Path=BindingContext.UpdateItemCommand}"
-                IsEnabled="{Binding IsSaveButtonEnabled}"/>
+                Command="{Binding Source={x:Reference EditItemView}, Path=BindingContext.UpdateItemCommand}"/>
         <Button Text="Cancel" 
                 FontAutoScalingEnabled="True"
                 FontAttributes="Bold"

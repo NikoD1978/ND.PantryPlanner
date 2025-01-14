@@ -147,8 +147,17 @@ namespace ND.PantryPlanner.ModelLayer.Models
     /// <summary>
     /// Indicates whether the item has an expiration date
     /// </summary>
-    public bool HasExpirationDate => ExpirationDate.HasValue;
-
+    public bool HasExpirationDate
+    {
+      get { return ExpirationDate.HasValue; }
+      set 
+      { 
+        ExpirationDate = value 
+          ? DateTime.Now 
+          : (DateTime?)null;
+        OnPropertyChanged();
+      }
+    }
     /// <summary>
     /// Indicates whether the item has to be refrigerated
     /// </summary>
