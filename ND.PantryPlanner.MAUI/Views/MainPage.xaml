@@ -40,9 +40,9 @@
               <VerticalStackLayout Spacing="2">
                 <HorizontalStackLayout>
                   <Label FontAttributes="Bold"
-                               FontSize="Title"
-                               LineBreakMode="WordWrap"
-                               Text="{Binding Name}" />
+                         FontSize="Title"
+                         LineBreakMode="WordWrap"
+                         Text="{Binding Name}" />
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
                   <Label Text="{Binding Description}"
@@ -57,13 +57,13 @@
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Margin="0,10,5,5">
                   <Button Text="{x:Static local:AppResources.EditButtonText}"
-                                Margin="0,10,10,0"
-                                CommandParameter="{Binding Id}"
-                                Command="{Binding Source={x:Reference MainPageView}, Path=BindingContext.ShowEditItemCommand}" />
+                          Margin="0,10,10,0"
+                          CommandParameter="{Binding Id}"
+                          Command="{Binding Source={x:Reference MainPageView}, Path=BindingContext.ShowEditItemCommand}" />
                   <Button Text="{x:Static local:AppResources.DeleteButtonText}"
-                                Margin="0,10,10,0"
-                                CommandParameter="{Binding Id}"
-                                Command="{Binding Source={x:Reference MainPageView}, Path=BindingContext.DeleteItemCommand}"/>
+                          Margin="0,10,10,0"
+                          CommandParameter="{Binding Id}"
+                          Command="{Binding Source={x:Reference MainPageView}, Path=BindingContext.DeleteItemCommand}"/>
                 </HorizontalStackLayout>
               </VerticalStackLayout>
             </Border>
