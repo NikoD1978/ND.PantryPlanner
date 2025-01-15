@@ -55,6 +55,7 @@ namespace ND.PantryPlanner.DataLayer.Repositories
                 LocationType = (LocationType)reader.GetInt32(4),
                 Quantity = reader.GetInt32(5),
                 ExpirationDate = reader.IsDBNull(6) ? (DateTime?)null : Convert.ToDateTime(reader.GetString(6)),
+                HasExpirationDate = reader.IsDBNull(5) ? false : true,
                 HasToBeRefrigerated = reader.GetBoolean(7),
                 ImagePath = reader.IsDBNull(8) ? string.Empty : reader.GetString(8),
               });
@@ -114,6 +115,7 @@ namespace ND.PantryPlanner.DataLayer.Repositories
                 LocationType = (LocationType)reader.GetInt32(3),
                 Quantity = reader.GetInt32(4),
                 ExpirationDate = reader.IsDBNull(5) ? (DateTime?)null : Convert.ToDateTime(reader.GetString(5)),
+                HasExpirationDate = reader.IsDBNull(5) ? false : true,
                 HasToBeRefrigerated = reader.GetBoolean(6),
                 ImagePath = reader.IsDBNull(7) ? string.Empty : reader.GetString(7),
               };
@@ -171,7 +173,7 @@ namespace ND.PantryPlanner.DataLayer.Repositories
           command.Parameters.AddWithValue($"${nameof(item.ItemType)}", (int)item.ItemType);
           command.Parameters.AddWithValue($"${nameof(item.LocationType)}", (int)item.LocationType);
           command.Parameters.AddWithValue($"${nameof(item.Quantity)}", item.Quantity);
-          command.Parameters.AddWithValue($"${nameof(item.ExpirationDate)}", DateTime.MinValue);
+          command.Parameters.AddWithValue($"${nameof(item.ExpirationDate)}", item.ExpirationDate?.ToString("yyyy-MM-dd") ?? (object)DBNull.Value);
           command.Parameters.AddWithValue($"${nameof(item.HasToBeRefrigerated)}", item.HasToBeRefrigerated);
           command.Parameters.AddWithValue($"${nameof(item.ImagePath)}", string.IsNullOrEmpty(item.ImagePath) ? DBNull.Value : item.ImagePath);
                   

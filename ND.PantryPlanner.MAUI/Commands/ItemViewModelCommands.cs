@@ -100,6 +100,7 @@ namespace ND.PantryPlanner.MAUI.Commands
     public async Task ShowAddItemAsync()
     {
       ItemObject = new Item();
+      ItemObject.HasExpirationDate = false;
       ItemObject.ItemTypeString = ItemTypesList[0];
 
       ItemObject.PropertyChanged += ItemObject_PropertyChanged;
