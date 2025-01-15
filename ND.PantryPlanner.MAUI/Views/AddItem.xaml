@@ -54,7 +54,7 @@
              Keyboard="Numeric"
              Text="{Binding ItemObject.Quantity}" />
 
-      <!--<Label Grid.Row="4"
+      <Label Grid.Row="4"
              Margin="10,10,10,10"
              Text="{x:Static local:AppResources.HasExpirationDate}"
              VerticalTextAlignment="Center"/>
@@ -70,8 +70,8 @@
       <DatePicker Grid.Row="5"
                   Margin="10,10,10,10"
                   Grid.Column="1"
-                  IsEnabled="{Binding ItemObject.HasExpirationDate, Converter={StaticResource invertedBoolean}}"
-                  Date="{Binding ItemObject.ExpirationDate}"/>-->
+                  IsEnabled="{Binding ItemObject.HasExpirationDate}"
+                  Date="{Binding ItemObject.ExpirationDate}"/>
 
       <Label Grid.Row="6"
              Margin="10,10,10,10"
